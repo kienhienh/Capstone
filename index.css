@@ -1,0 +1,23 @@
+.hover-arrow {
+  position: relative;
+  transition: padding-right 0.3s ease;
+}
+
+.hover-arrow::after {
+  content: "→"; /* mũi tên */
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hover-arrow:hover {
+  padding-right: 25px; /* chữ dịch sang phải một chút */
+}
+.hover-text {
+  color: #212529; /* màu mặc định (Bootstrap text-dark) */
+  transition: color 0.3s ease; /* hiệu ứng mượt */
+}
+.hover-text:hover {
+  color: #0d6efd; /* đổi sang xanh dương Bootstrap khi hover */
+}

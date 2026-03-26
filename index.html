@@ -10,12 +10,13 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <header>
+    <header class="sticky-top bg-light px-5">
       <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid flex justify-between items-center">
+        <div class="container-fluid">
           <div>
             <a class="navbar-brand text-info font-bold" href="#">Astroship</a>
             <div class="badge text-bg-info text-wrap" style="width: 3rem">
@@ -35,11 +36,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul
-              class="navbar-nav me-auto mb-2 mb-lg-0 flex flex-col lg:flex-row"
+              class="navbar-nav me-auto mb-2 mb-lg-0 text-center"
             >
               <li class="nav-item dropdown relative z-50 isolate">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle hover-text"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -48,34 +49,34 @@
                   Pages
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Features</a></li>
-                  <li><a class="dropdown-item" href="#">Integrations</a></li>
-                  <li><a class="dropdown-item" href="#">Blog Details</a></li>
-                  <li><a class="dropdown-item" href="#">404 Page</a></li>
+                  <li><a class="dropdown-item hover-text" href="#">Features</a></li>
+                  <li><a class="dropdown-item hover-text" href="#">Integrations</a></li>
+                  <li><a class="dropdown-item hover-text" href="#">Blog Details</a></li>
+                  <li><a class="dropdown-item hover-text" href="#">404 Page</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link hover-text" href="#">Pricing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link hover-text" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link hover-text" href="#">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link hover-text" href="#">Contact</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
               <a
                 href="#"
-                class="text-center text-dark transition text-decorattion-none px-5 py-2 bg-gray-100 hover:bg-gray-200 border-2 text-decoration-none"
+                class="btn btn-noline-secondary me-2 text-decoration-none"
                 >Log in
               </a>
               <a
                 href="#"
-                class="bg-info rounded-pill text-center text-decorattion-none transition px-5 py-2 bg-indigo-600 text-white text-decoration-none"
+                class="btn btn-primary rounded-pill text-white text-decoration-none"
                 >Try for Free
               </a>
             </form>
@@ -85,18 +86,15 @@
     </header>
     <section class="container py-5">
       <div class="row align-items-center">
-        <div class="col-md-6">
-          <h2 class="fw-bold fs-1">Create Websites</h2>
+        <div class="col-md-5">
+          <h2 class="fw-bold fs-1">Create websites with Astroship™</h2>
           <p class="text-muted fs-5">
-            Pro version of popular Astroship starter template made for startups.
+            Pro version of popular Astroship starter template made for startups. Built with Astro and Tailwind CSS.
           </p>
-          <p class="text-muted fs-5">
-            Build stunning websites effortlessly with our SaaS platform.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill"
+          <a href="#" class="btn btn-primary rounded-pill me-2"
             >Buy Template - $49</a
           >
-          <a href="#" class="btn btn-primary rounded-pill">Free Version</a>
+          <a href="#" class="btn btn-outline-primary rounded-pill">Free Version</a>
         </div>
         <div class="col-md-6 text-center">
           <img
@@ -164,11 +162,68 @@
         </div>
       </div>
     </section>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <section class="py-5">
+      <div class="container">
+        <div class="row mb-4 text-center">
+          <h2 class="fw-bold">Supercharge Your Workflows</h2>
+          <p class="text-muted">
+            Unlock your team's true potential with our state-of-the-art SaaS platform. From intelligent task management to real-time collaboration and top-notch data security, we have everything you need to streamline your workflows and achieve high productivity.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+          <img
+            src="/img/6.SnSOjqTF_Z2kOY0y.avif"
+            class="img-fluid"
+            alt="Website illustration"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold fs-1">Experience the Ultimate Boost in Productivity with Our Intuitive Platform</h2>
+          <p class="text-muted fs-5">
+            Streamline your tasks and collaborate seamlessly with our cutting-edge SaaS startup platform. Unlock the potential of your team and take productivity to new heights.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Intelligent Task Management</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time Collaboration</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Data Security & Privacy</li>
+          </ul>
+          <a href="#" class="btn btn-primary rounded-pill me-2"
+            >Start 14-day trial</a
+          >
+          <a href="#" class="btn btn-noline-secondary hover-text">Contact Sales</a>
+        </div>
+        
+      </div>
+    </section>
+    <section class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="fw-bold fs-1">Supercharge Your Marketing Strategy with Advanced Analytics</h2>
+          <p class="text-muted fs-5">
+            Harness the potential of AI-driven marketing analytics to optimize your campaigns, understand your audience better, and achieve unprecedented growth.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Smart Audience Segmentation</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Predictive Campaign Performance</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time Data Visualization</li>
+          </ul>
+          <a href="#" class="btn btn-primary rounded-pill me-2 hover-arrow"
+            >Start 14-day trial</a
+          >
+          <a href="#" class="btn btn-noline-secondary hover-text">Contact Sales</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <img
+            src="/img/2.CV1PrsFe_ZDeQkF.avif"
+            class="img-fluid"
+            alt="Website illustration"
+          />
+        </div>
+      </div>
+    </section>
   </body>
 </html>
