@@ -20,6 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
         theme: {
@@ -29,6 +33,84 @@
         },
       };
     </script>
+    <style>
+      /* Custom styles cho phần chuyển đổi từ Tailwind */
+      .feature-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .feature-card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .badge-pill-custom {
+        border-radius: 50rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .text-indigo {
+        color: #4f46e5;
+      }
+      .bg-indigo-light {
+        background-color: #eef2ff;
+      }
+      .border-indigo-light {
+        border-color: #c7d2fe;
+      }
+      .text-slate-600 {
+        color: #475569;
+      }
+      .bg-slate-50 {
+        background-color: #f8fafc;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
+      }
+      .marquee-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-content {
+        display: flex;
+        gap: 1.5rem;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .marquee-content {
+          animation: none;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+      }
+      .fade-gradient::before,
+      .fade-gradient::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .fade-gradient::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .fade-gradient::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+    </style>
   </head>
   <body class="bg-white text-slate-800">
     <!-- ========== HEADER ========== -->
@@ -80,6 +162,11 @@
                   href="blog.html"
                   class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >Blog</a
+                >
+                <a
+                  href="./notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >404 Page</a
                 >
               </div>
             </details>
