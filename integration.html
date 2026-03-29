@@ -10,88 +10,120 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <header class="sticky-top bg-light px-5">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <div>
-            <a class="navbar-brand text-info font-bold" href="./index.html">Astroship</a>
-            <div class="badge rounded-pill text-bg-secondary mb-1">PRO</div>
-          </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse flex justify-center items-center"
-            id="navbarSupportedContent"
-          >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-              <li class="nav-item dropdown relative z-50 isolate">
-                <a
-                  class="nav-link dropdown-toggle hover-text"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+  <body class="bg-white text-slate-800">
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="flex items-center gap-1 font-bold text-xl">
+            <span class="text-indigo-600">Astroship</span>
+            <span
+              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
+              >PRO</span
+            >
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6">
+            <details class="relative">
+              <summary
+                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
+              >
+                Pages
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Pages
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item hover-text" href="index.html#alpha">Features</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item hover-text" href="./integration.html"
-                      >Integrations</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item hover-text" href="./blog.html"
-                      >Blog Details</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item hover-text" href="#">404 Page</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="./contact.html">Contact</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <a
-                href="#"
-                class="btn btn-noline-secondary me-2 text-decoration-none"
-                >Log in
-              </a>
-              <a
-                href="#"
-                class="btn btn-primary rounded-pill text-white text-decoration-none"
-                >Try for Free
-              </a>
-            </form>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
+              >
+                <a
+                  href="./index.html#alpha"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Features</a
+                >
+                <a
+                  href="integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Integrations</a
+                >
+                <a
+                  href="blog.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Blog</a
+                >
+              </div>
+            </details>
+            <a
+              href="pricing.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Pricing</a
+            >
+            <a href="about.html" class="text-indigo-600 font-medium">About</a>
+            <a
+              href="/blog1.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
+            >
+              Try for Free
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
     <section class="py-5 bg-light">
       <div class="container text-center">
@@ -219,6 +251,10 @@
     </section>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
