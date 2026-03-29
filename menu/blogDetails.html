@@ -1,104 +1,223 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Typography Example Post</title>
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom styles cho phần chuyển đổi từ Tailwind */
+      .feature-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .feature-card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .badge-pill-custom {
+        border-radius: 50rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .text-indigo {
+        color: #4f46e5;
+      }
+      .bg-indigo-light {
+        background-color: #eef2ff;
+      }
+      .border-indigo-light {
+        border-color: #c7d2fe;
+      }
+      .text-slate-600 {
+        color: #475569;
+      }
+      .bg-slate-50 {
+        background-color: #f8fafc;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
+      }
+      .marquee-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-content {
+        display: flex;
+        gap: 1.5rem;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .marquee-content {
+          animation: none;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+      }
+      .fade-gradient::before,
+      .fade-gradient::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .fade-gradient::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .fade-gradient::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+    </style>
   </head>
-  <body>
-    <header class="sticky-top bg-light px-5">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <div>
-            <a class="navbar-brand text-info font-bold" href="./index.html"
-              >Astroship</a
+  <body class="bg-white text-slate-800">
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="flex items-center gap-1 font-bold text-xl">
+            <span class="text-indigo-600">Astroship</span>
+            <span
+              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
+              >PRO</span
             >
-            <div class="badge rounded-pill text-bg-secondary mb-1">PRO</div>
-          </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse flex justify-center items-center"
-            id="navbarSupportedContent"
-          >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-              <li class="nav-item dropdown relative z-50 isolate">
-                <a
-                  class="nav-link dropdown-toggle hover-text"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6">
+            <details class="relative">
+              <summary
+                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
+              >
+                Pages
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  Pages
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item hover-text" href="index.html#alpha"
-                      >Features</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item hover-text"
-                      href="./integration.html"
-                      >Integrations</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item hover-text" href="./blog.html"
-                      >Blog Details</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item hover-text" href="#">404 Page</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="#">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hover-text" href="./contact.html">Contact</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <a
-                href="#"
-                class="btn btn-noline-secondary me-2 text-decoration-none"
-                >Log in
-              </a>
-              <a
-                href="#"
-                class="btn btn-primary rounded-pill text-white text-decoration-none"
-                >Try for Free
-              </a>
-            </form>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
+              >
+                <a
+                  href="./index.html#alpha"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Features</a
+                >
+                <a
+                  href="/menu/integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Integrations</a
+                >
+                <a
+                  href="/page/blog.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Blog</a
+                >
+                <a
+                  href="/page/notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >404 Page</a
+                >
+              </div>
+            </details>
+            <a
+              href="pricing.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Pricing</a
+            >
+            <a href="/page/about.html" class="text-indigo-600 font-medium">About</a>
+            <a
+              href="/page/blog.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Blog</a
+            >
+            <a
+              href="/menu/contact.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
+            >
+              Try for Free
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
+
     <div class="container my-5">
       <article class="mx-auto" id="top" style="max-width: 800px">
         <h1 class="mb-1 text-center py-2 fw-light fs-5 text-info">
@@ -252,7 +371,7 @@
           duis id in.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             Ipsum et cupidatat mollit exercitation enim duis sunt irure aliqua
             reprehenderit mollit. Pariatur Lorem pariatur laboris do culpa do
             elit irure. Eiusmod amet nulla voluptate velit culpa et aliqua ad
@@ -268,7 +387,7 @@
           commodo proident in duis aliquip minim.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             "Qui est sit et reprehenderit aute est esse enim aliqua id aliquip
             ea anim. Pariatur sint reprehenderit mollit velit voluptate enim
             consectetur sint enim. Quis exercitation proident elit non id qui
@@ -279,7 +398,7 @@
           Ipsum excepteur cupidatat sunt minim ad eiusmod tempor sit.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             "Deserunt excepteur adipisicing culpa pariatur cillum laboris
             ullamco nisi fugiat cillum officia. In cupidatat nulla aliquip
             tempor ad Lorem Lorem quis voluptate officia consectetur pariatur ex
@@ -340,35 +459,29 @@
         <p><a class="text-dark" href="#top">[Top]</a></p>
 
         <h4 class="mt-4 fw-bold">Horizontal rule</h4>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-bottom border-3 py-5">
-            In dolore velit aliquip labore mollit minim tempor veniam eu veniam
-            ad in sint aliquip mollit mollit. Ex occaecat non deserunt elit
-            laborum sunt tempor sint consequat culpa culpa qui sit. Irure ad
-            commodo eu voluptate mollit cillum cupidatat veniam proident amet
-            minim reprehenderit.
-          </p>
-        </blockquote>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non
-            sit labore anim elit veniam Lorem minim commodo eiusmod irure do
-            minim nisi. Dolor amet cillum excepteur consequat sint non sint.
-          </p>
-        </blockquote>
+        <p class="fw-normal border-bottom py-5">
+          In dolore velit aliquip labore mollit minim tempor veniam eu veniam ad
+          in sint aliquip mollit mollit. Ex occaecat non deserunt elit laborum
+          sunt tempor sint consequat culpa culpa qui sit. Irure ad commodo eu
+          voluptate mollit cillum cupidatat veniam proident amet minim
+          reprehenderit.
+        </p>
+        <p class="fw-normal py-5">
+          In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non
+          sit labore anim elit veniam Lorem minim commodo eiusmod irure do minim
+          nisi. Dolor amet cillum excepteur consequat sint non sint.
+        </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
 
-        <h2 class="mt-5 lh-1">Table</h2>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in
-            pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat
-            duis eu enim exercitation deserunt ea laborum occaecat
-            reprehenderit. Et incididunt dolor commodo consequat mollit nisi
-            proident non pariatur in et incididunt id. Eu ut et Lorem ea ex
-            magna minim ipsum ipsum do.
-          </p>
-        </blockquote>
+        <h2 class="mt-5 fw-bold fs-3">Table</h2>
+        <p class="fw-normal py-4">
+          Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in
+          pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat
+          duis eu enim exercitation deserunt ea laborum occaecat reprehenderit.
+          Et incididunt dolor commodo consequat mollit nisi proident non
+          pariatur in et incididunt id. Eu ut et Lorem ea ex magna minim ipsum
+          ipsum do.
+        </p>
         <table class="table table-bordered">
           <thead class="table-light">
             <tr>
@@ -410,19 +523,17 @@
             </tr>
           </tbody>
         </table>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            Minim id consequat adipisicing cupidatat laborum culpa veniam non
-            consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt
-            nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris
-            ullamco nostrud laboris non irure laboris. Cillum dolore labore
-            Lorem deserunt mollit voluptate esse incididunt ex dolor.
-          </p>
-        </blockquote>
+        <p class="fw-normal py-5">
+          Minim id consequat adipisicing cupidatat laborum culpa veniam non
+          consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt
+          nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris
+          ullamco nostrud laboris non irure laboris. Cillum dolore labore Lorem
+          deserunt mollit voluptate esse incididunt ex dolor.
+        </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
         <h4 class="mt-4 fw-bold">Code</h4>
         <h4 class="mt-4 fw-bold">Inline code</h4>
-        <p class="fw-normal border-3 py-4">
+        <p class="fw-normal py-4">
           Ad amet irure est magna id mollit Lorem in do duis enim. Excepteur
           velit nisi magna ea pariatur pariatur ullamco fugiat deserunt sint non
           sint. Duis duis est `code in text` velit velit aute culpa ex quis
@@ -433,7 +544,7 @@
           deserunt.
         </p>
         <h4 class="mt-4 fw-bold">Highlighted</h4>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum
           Lorem proident. In sint dolor ullamco ad do adipisicing amet id
           excepteur Lorem aliquip sit irure veniam laborum duis cillum. Aliqua
@@ -448,7 +559,7 @@
           />
         </div>
 
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Ex amet id ex aliquip id do laborum excepteur exercitation elit sint
           commodo occaecat nostrud est. Nostrud pariatur esse veniam laborum non
           sint magna sit laboris minim in id. Aliqua pariatur pariatur excepteur
@@ -456,7 +567,7 @@
         </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
         <h4 class="mt-4 fw-bold">Inline elements</h4>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Sint ea anim ipsum ad commodo cupidatat do
           <b>exercitation</b> incididunt et minim ad labore sunt. Minim deserunt
           labore laboris velit nulla incididunt ipsum nulla. Ullamco ad laborum
@@ -477,7 +588,7 @@
             class="img-fluid"
           />
         </div>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Proident sit veniam in est proident officia adipisicing ea tempor
           cillum non cillum velit deserunt. Voluptate laborum incididunt sit
           consectetur Lorem irure incididunt voluptate nostrud. Commodo ut
@@ -488,7 +599,7 @@
           <u><b>excepteur proident</b></u> Lorem minim adipisicing nostrud
           mollit ad ut voluptate do nulla esse occaecat aliqua sint anim.
         </p>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Incididunt in culpa cupidatat mollit cillum qui proident sit. In
           cillum aliquip incididunt voluptate magna amet cupidatat cillum
           pariatur sint aliqua est enim <b>anim</b> voluptate. Magna aliquip
@@ -517,12 +628,178 @@
         <p><a class="text-dark" href="#top">[Top]</a></p>
       </article>
       <div class="d-flex justify-content-center align-items-center">
-        <a href="#" class="btn btn-outline-secondary">
+        <a href="./blog1.html" class="btn btn-outline-secondary">
           <span class="me-2">&larr;</span>
           Back to Blog
         </a>
       </div>
     </div>
+    <footer class="bg-slate-100 border-t border-slate-200 py-12">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
+            <a href="/" class="flex items-center gap-1 font-bold text-lg">
+              <span class="text-indigo-600">Astroship</span>
+              <span
+                class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded uppercase"
+                >PRO</span
+              >
+            </a>
+            <p class="mt-4 text-sm text-slate-600 max-w-xs">
+              Astroship Pro is a premium astro website template made for saas &
+              startups. Built with Astro and Tailwind CSS.
+            </p>
+            <div class="flex gap-3 mt-4">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Company</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a href="/about.html" class="hover:text-indigo-600 transition"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="/blog1.html" class="hover:text-indigo-600 transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact.html" class="hover:text-indigo-600 transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Product</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >For Startups</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="/pricing.html" class="hover:text-indigo-600 transition"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Integrations</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Resources</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Guides</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Uptime Status</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-200 mt-8 pt-6 text-center text-sm text-slate-600"
+        >
+          <p>Copyright © 2025 Astroship. All rights reserved.</p>
+          <p class="mt-2">
+            <a href="/terms" class="hover:text-indigo-600 transition">Terms</a>
+            ·
+            <a href="/privacy" class="hover:text-indigo-600 transition"
+              >Privacy</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

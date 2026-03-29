@@ -17,359 +17,113 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+  
   </head>
-  <body class="bg-white text-slate-900 antialiased">
-    <!-- Header/Navigation -->
-    <header
-      class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200"
-    >
-      <nav class="max-w-screen-xl mx-auto px-5">
-        <div class="flex justify-between items-center h-16">
-          <!-- Logo -->
-          <div class="flex items-center">
-            <a
-              href="/"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border-2 border-indigo-200 rounded-full hover:border-indigo-400 transition-colors"
-            >
-              <span class="font-bold text-indigo-600 text-lg">Astroship</span>
-              <!-- <span class="text-slate-600 text-lg"></span> -->
-              <span
-                class="uppercase text-[10px] font-bold bg-gray-200 text-slate-700 px-2 py-0.5 rounded-md"
-                >PRO</span
-              >
-            </a>
-          </div>
 
-          <!-- Desktop Navigation -->
-          <div class="hidden lg:flex items-center gap-8">
-            <div class="relative group">
-              <button
-                class="flex items-center gap-1 text-sm text-slate-600 hover:text-indigo-600 transition-colors py-2"
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="flex items-center gap-1 font-bold text-xl">
+            <span class="text-indigo-600">Astroship</span>
+            <span
+              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
+              >PRO</span
+            >
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6">
+            <details class="relative">
+              <summary
+                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
               >
                 Pages
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
+                  class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  viewBox="0 0 24 24"
                 >
-                  <path d="m6 9 6 6 6-6" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
-              </button>
+              </summary>
               <div
-                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left"
+                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
               >
                 <a
-                  href="#features"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  href="./index.html#alpha"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >Features</a
                 >
                 <a
                   href="/menu/integration.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >Integrations</a
                 >
                 <a
-                  href="/page/blog2.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
-                  >Blog Details</a
+                  href="/page/blog.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Blog</a
                 >
-                <div class="border-t border-gray-200 my-1"></div>
                 <a
                   href="/page/notfound.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >404 Page</a
                 >
               </div>
-            </div>
+            </details>
             <a
-              href="/page/pricing.html"
-              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              href="pricing.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
               >Pricing</a
             >
+            <a href="/page/about.html" class="text-indigo-600 font-medium">About</a>
             <a
-              href="/page/about.html"
-              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
-              >About</a
-            >
-            <a
-              href="/menu/blog.html"
-              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              href="/page/blog.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
               >Blog</a
             >
             <a
               href="/menu/contact.html"
-              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
               >Contact</a
             >
-          </div>
+          </nav>
 
-          <!-- Right Side Buttons -->
-          <div class="hidden lg:flex items-center gap-4">
+          <div class="flex items-center gap-3">
             <a
               href="#"
-              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
               >Log in</a
             >
             <a
               href="#"
-              class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-800 transition-colors"
+              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
             >
               Try for Free
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
                 class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                  clip-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
                 />
               </svg>
             </a>
           </div>
-
-          <!-- Mobile Menu Button -->
-          <button
-            id="mobile-menu-btn"
-            class="lg:hidden p-2 text-slate-600 hover:text-indigo-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div
-          id="mobile-menu"
-          class="hidden lg:hidden py-4 border-t border-gray-200"
-        >
-          <div class="flex flex-col gap-2">
-            <a
-              href="#"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >Pages</a
-            >
-            <a
-              href="/page/pricing.html"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >Pricing</a
-            >
-            <a
-              href="/page/about.html"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >About</a
-            >
-            <a
-              href="/menu/blog.html"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >Blog</a
-            >
-            <a
-              href="/menu/contact.html"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >Contact</a
-            >
-            <div class="border-t border-gray-200 my-2"></div>
-            <a
-              href="#"
-              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
-              >Log in</a
-            >
-            <a
-              href="#"
-              class="mx-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full text-center"
-              >Try for Free</a
-            >
-          </div>
-        </div>
-      </nav>
+      </div>
     </header>
-
-    <!-- Hero Section -->
-    <div class="overflow-x-clip">
-      <div class="max-w-screen-xl mx-auto px-5">
-        <main class="grid lg:grid-cols-5 place-items-center relative">
-          <!-- Gradient background blobs -->
-          <div
-            class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-200 right-0 top-0"
-          ></div>
-          <div
-            class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-200 right-56 top-10"
-          ></div>
-
-          <!-- Left side content -->
-          <div class="max-w-sm md:max-w-max lg:col-span-2">
-            <h1
-              class="text-3xl lg:text-4xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter text-wrap-balance text-center lg:text-start"
-            >
-              Create websites with Astroship™
-            </h1>
-            <p
-              class="text-lg mt-4 max-w-lg text-slate-600 text-wrap-balance text-center lg:text-start"
-            >
-              Pro version of popular Astroship starter template made for
-              startups. Built with Astro and Tailwind CSS.
-            </p>
-            <div
-              class="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3"
-            >
-              <a
-                href="https://web3templates.com/templates/astroship-pro-astro-saas-website-template"
-                target="_blank"
-                rel="noopener"
-                class="rounded-full text-center transition px-7 py-2.5 bg-indigo-600 text-white hover:bg-indigo-800 flex gap-1 items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Buy Template — $49
-              </a>
-              <a
-                href="https://github.com/surjithctly/astroship"
-                rel="noopener"
-                target="_blank"
-                class="rounded-full text-center transition px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600 flex gap-1 items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Free Version
-              </a>
-            </div>
-          </div>
-
-          <!-- Right side image -->
-          <div class="py-3 lg:col-span-3 lg:-mr-44 relative z-0">
-            <div
-              class="absolute inset-0 bg-gradient-to-tr from-indigo-200/30 to-purple-200/30 blur-3xl -z-10 rounded-2xl"
-            ></div>
-            <picture>
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/hero-screenshot.dpXn-2za_Z252oyA.avif"
-                alt="Astronaut in the air"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                loading="eager"
-                fetchpriority="high"
-                width="1183"
-                height="787"
-                decoding="async"
-                class="rounded-2xl shadow-none bg-transparent relative z-10"
-              />
-            </picture>
-          </div>
-        </main>
-      </div>
-    </div>
-
-    <!-- Trusted By Section -->
-    <div class="max-w-screen-xl mx-auto px-5 py-12">
-      <div>
-        <h2
-          class="text-center text-slate-500 text-sm font-medium uppercase tracking-wide"
-        >
-          Trusted by popular startups you know
-        </h2>
-        <div
-          class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 mt-8"
-        >
-          <!-- Stripe Logo -->
-          <div
-            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 97 48"
-              class="h-full w-auto"
-            >
-              <path
-                d="m52.5131 4v5.42063l-6.763 1.44197v-5.44736zm14.0657 8.4375c-2.6406 0-4.3381 1.2283-5.2812 2.0828l-.3502-1.6556h-5.9278v31.1353l6.7361-1.4153.0269-7.5568c.97.6943 2.3981 1.6823 4.7692 1.6823 4.8231 0 9.215-3.8452 9.215-12.3099-.0269-7.7438-4.4728-11.9628-9.188-11.9628zm-1.6167 18.3981c-1.5897 0-2.5328-.5608-3.1795-1.255l-.0269-9.9067c.7006-.7744 1.6706-1.3084 3.2064-1.3084 2.4519 0 4.1494 2.7236 4.1494 6.2217 0 3.5781-1.6705 6.2484-4.1494 6.2484zm32.0382-6.1683c0-6.8359-3.3412-12.2298-9.727-12.2298-6.4128 0-10.2928 5.3939-10.2928 12.1764 0 8.0375 4.5806 12.0962 11.155 12.0962 3.2064 0 5.6314-.7209 7.4637-1.7356v-5.3405c-1.8323.9079-3.9339 1.4686-6.6014 1.4686-2.6137 0-4.9309-.9079-5.2273-4.0588h13.1759c0-.1463.0096-.4776.0206-.86l.0002-.006v-.0004-.0003-.0007l.0001-.0006v-.0004c.0151-.523.033-1.1393.033-1.5081zm-13.3106-2.5368c0-3.0174 1.8592-4.2724 3.5567-4.2724 1.6436 0 3.395 1.255 3.395 4.2724zm-31.1766-9.2399h-6.763v23.3648h6.763zm-14.4391.0026.4311 1.976c1.5897-2.8839 4.7422-2.2964 5.6045-1.976v6.1416c-.8353-.2937-3.5298-.6676-5.1195 1.3885v15.8347h-6.7361v-23.3648zm-13.0429-5.79554-6.5744 1.38853-.027 21.38881c0 3.9519 2.9909 6.8625 6.9787 6.8625 2.2094 0 3.8261-.4005 4.7153-.8812v-5.4206c-.8623.3472-5.1195 1.5755-5.1195-2.3765v-9.4794h5.1195v-5.6877h-5.1195zm-15.9238 11.13434c-1.42806 0-2.29029.4005-2.29029 1.4419 0 1.137 1.4839 1.6372 3.32489 2.2577 3.0011 1.0116 6.9512 2.3431 6.9679 7.2751 0 4.7798-3.8531 7.5302-9.45751 7.5302-2.31722 0-4.85-.454-7.35584-1.5221v-6.3552c2.26334 1.2283 5.11945 2.1362 7.35584 2.1362 1.50889 0 2.58671-.4005 2.58671-1.6289 0-1.2594-1.60861-1.8351-3.5506-2.5301-2.95752-1.0585-6.68833896-2.3937-6.68833896-6.8425 0-4.7263 3.63750896-7.5568 9.10723896-7.5568 2.2364 0 4.4458.3471 6.6822 1.2283v6.2751c-2.0478-1.0948-4.6344-1.7089-6.6822-1.7089z"
-              />
-            </svg>
-          </div>
-          <!-- HubSpot Logo -->
-          <div
-            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
-          >
-            <svg
-              viewBox="0 0 106 31"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-full w-auto"
-            >
-              <path
-                d="M11.5651 5.62866V14.0394H3.8408V5.62866H0.173584V25.7058H3.8408V17.5682H11.5651V25.7058H15.2323V5.62866H11.5651Z"
-              />
-              <path
-                d="M26.9691 19.2163C26.9691 20.0209 26.6495 20.7926 26.0805 21.3616C25.5116 21.9305 24.7399 22.2502 23.9353 22.2502C23.1306 22.2502 22.359 21.9305 21.79 21.3616C21.221 20.7926 20.9014 20.0209 20.9014 19.2163V10.6169H17.4229V19.2163C17.4229 20.9418 18.1083 22.5967 19.3285 23.8168C20.5486 25.037 22.2034 25.7224 23.929 25.7224C25.6545 25.7224 27.3094 25.037 28.5295 23.8168C29.7496 22.5967 30.4351 20.9418 30.4351 19.2163V10.6169H26.9691V19.2163Z"
-              />
-              <path
-                d="M52.7417 11.5023C52.7417 9.73968 53.9078 9.18088 55.1853 9.18088C56.2148 9.18088 57.575 9.96428 58.4644 10.9148L60.7427 8.23039C59.6053 6.69235 57.2983 5.62866 55.4099 5.62866C51.6367 5.62866 48.9074 7.83869 48.9074 11.5023C48.9074 18.2995 57.2156 16.1434 57.2156 19.9472C57.2156 21.1204 56.0765 22.1572 54.772 22.1572C52.7147 22.1572 52.0481 21.151 51.103 20.0873L48.575 22.716C50.192 24.7014 52.1865 25.7094 54.5762 25.7094C58.1607 25.7094 61.0446 23.4724 61.0446 19.9759C61.0446 12.4295 52.7363 14.7742 52.7363 11.5023"
-              />
-              <path
-                d="M104.141 22.4985C102.085 22.4985 101.501 21.6091 101.501 20.2471V14.219H104.696V11.1644H101.501V7.13428L97.9741 8.71724V20.9964C97.9741 24.1372 100.141 25.7201 103.113 25.7201C103.579 25.7286 104.045 25.6913 104.504 25.6087L105.364 22.441C104.976 22.4679 104.531 22.4949 104.141 22.4949"
-              />
-              <path
-                d="M40.2095 10.7176C38.4864 10.7176 37.2844 11.2171 36.1219 12.358V5.74951H32.6379V17.9981C32.6379 22.5835 35.953 25.7242 39.6777 25.7242C43.8103 25.7242 47.4452 22.5278 47.4452 18.2227C47.4452 13.9715 44.0996 10.7194 40.2095 10.7194V10.7176ZM40.188 22.2187C39.4062 22.2187 38.6419 21.9869 37.9919 21.5526C37.3418 21.1182 36.8352 20.5008 36.536 19.7785C36.2368 19.0563 36.1585 18.2615 36.311 17.4947C36.4636 16.7279 36.84 16.0235 37.3929 15.4707C37.9457 14.9179 38.65 14.5414 39.4168 14.3889C40.1836 14.2364 40.9784 14.3146 41.7007 14.6138C42.423 14.913 43.0404 15.4197 43.4747 16.0697C43.9091 16.7198 44.1409 17.484 44.1409 18.2658C44.1409 19.3142 43.7244 20.3196 42.9831 21.061C42.2418 21.8023 41.2364 22.2187 40.188 22.2187Z"
-              />
-              <path
-                d="M78.0389 18.0389C78.0389 13.7266 74.4112 10.5374 70.2714 10.5374C66.5467 10.5374 63.2317 13.6781 63.2317 18.2635V30.5193H66.7156V23.9018C67.8763 25.0409 69.0802 25.5422 70.8015 25.5422C74.6915 25.5422 78.0371 22.2919 78.0371 18.0389H78.0389ZM74.74 17.9958C74.74 18.7776 74.5082 19.5418 74.0738 20.1919C73.6395 20.8419 73.0221 21.3486 72.2998 21.6478C71.5775 21.947 70.7827 22.0252 70.0159 21.8727C69.2492 21.7202 68.5448 21.3437 67.992 20.7909C67.4392 20.2381 67.0627 19.5337 66.9102 18.7669C66.7577 18.0001 66.8359 17.2054 67.1351 16.4831C67.4343 15.7608 67.941 15.1434 68.591 14.709C69.2411 14.2747 70.0053 14.0429 70.7871 14.0429C71.8355 14.0429 72.8409 14.4593 73.5822 15.2006C74.3236 15.942 74.74 16.9474 74.74 17.9958Z"
-              />
-            </svg>
-          </div>
-          <!-- Intercom Logo -->
-          <div
-            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
-          >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 175 48"
-              class="h-full w-auto"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m37.6816794 0h-32.06106871c-2.9509542 0-5.34351145 2.39255725-5.34351145 5.34351145v32.06106875c0 2.9509542 2.39255725 5.3435114 5.34351145 5.3435114h32.06106871c2.9509542 0 5.3435114-2.3925572 5.3435114-5.3435114v-32.06106875c0-2.9509542-2.3925572-5.34351145-5.3435114-5.34351145zm-10.3316794 7.83759542c0-.78683206.6385496-1.42538168 1.4253817-1.42538168.786832 0 1.4253817.63854962 1.4253817 1.42538168v19.03759538c0 .7868321-.6385497 1.4253817-1.4253817 1.4253817-.7868321 0-1.4253817-.6385496-1.4253817-1.4253817zm-7.1242366-.72137405c0-.78683206.6385496-1.42538168 1.4253816-1.42538168.7868321 0 1.4253817.63854962 1.4253817 1.42538168v20.66202293c0 .786832-.6385496 1.4253817-1.4253817 1.4253817-.786832 0-1.4253816-.6385497-1.4253816-1.4253817zm-7.1242367.72137405c0-.78683206.6385496-1.42538168 1.4253817-1.42538168s1.4240458.63854962 1.4240458 1.42538168v19.03759538c0 .7868321-.6372137 1.4253817-1.4240458 1.4253817s-1.4253817-.6385496-1.4253817-1.4253817zm-7.12423662 2.84942748c0-.78683206.63721374-1.42538168 1.4240458-1.42538168s1.42538168.63854962 1.42538168 1.42538168v12.8164122c0 .7868321-.63854962 1.4253817-1.42538168 1.4253817s-1.4240458-.6385496-1.4240458-1.4253817zm30.85076332 21.7347328c-.2190839.1896947-5.4984732 4.6181298-15.1769084 4.6181298-9.6784351 0-14.95515263-4.4284351-15.17690836-4.6181298-.5971374-.5116412-.66793893-1.410687-.15496183-2.0091603.51030534-.5958015 1.40801527-.666603 2.00515267-.1562977.08282443.0694657 4.79713742 3.9341603 13.32538172 3.9341603 8.6351145 0 13.2759542-3.8927481 13.321374-3.9314885.5958015-.5129771 1.4975191-.4435115 2.0078244.1536259.5156489.5984733.4461832 1.4975191-.1509542 2.0091603zm.4969466-8.9183206c0 .7868321-.6385496 1.4253817-1.4253817 1.4253817-.786832 0-1.4240458-.6385496-1.4240458-1.4253817v-12.8164122c0-.78683206.6372138-1.42538168 1.4240458-1.42538168.7868321 0 1.4253817.63854962 1.4253817 1.42538168z"
-                transform="translate(1 3)"
-              />
-              <rect x="58.442748" y="16.358779" width="8" height="16" rx="2" />
-              <text x="90" y="28" fontSize="14" fontWeight="500">INTERCOM</text>
-            </svg>
-          </div>
-          <!-- Asana Logo -->
-          <div
-            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
-          >
-            <svg
-              viewBox="0 0 175 48"
-              class="h-full w-auto"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-            >
-              <circle cx="12" cy="12" r="8" />
-              <circle cx="28" cy="12" r="8" />
-              <circle cx="20" cy="26" r="8" />
-              <text x="44" y="22" fontSize="18" fontWeight="500">asana</text>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
+  <body class="bg-white text-slate-900 antialiased">
 
     <!-- Features Section Header -->
     <div
@@ -599,38 +353,6 @@
       </div>
     </div>
 
-    <!-- Client Testimonials Section -->
-    <div class="w-full px-5 py-6 mt-16 mb-8">
-      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-center">
-        Client <span class="text-indigo-600">Testimonials</span>
-      </h2>
-      <p class="text-lg mt-4 text-slate-600 text-center max-w-2xl mx-auto">
-        Astroship is trusted by the world's leading companies and brands.
-      </p>
-    </div>
-
-    <!-- Testimonials Carousel -->
-    <div class="w-full relative overflow-hidden fade-gradient mb-24">
-      <div
-        class="absolute w-[600px] h-[600px] blur-3xl -z-10 bg-gradient-radial from-indigo-200/60 via-indigo-100/40 to-transparent right-1/3 -top-20"
-      ></div>
-      <div
-        class="absolute w-[500px] h-[500px] blur-3xl -z-10 bg-gradient-radial from-purple-200/50 via-purple-100/30 to-transparent right-1/3 translate-x-1/4 top-20"
-      ></div>
-      <div
-        class="absolute w-[400px] h-[400px] blur-2xl -z-10 bg-gradient-radial from-blue-200/40 via-blue-100/20 to-transparent left-1/4 bottom-0"
-      ></div>
-      <div class="hidden md:block relative">
-        <div
-          class="flex gap-6 animate-marquee-testimonial px-5"
-          id="marqueeContent"
-        ></div>
-      </div>
-      <div
-        class="md:hidden custom-scroll scrollbar-hide flex gap-6 py-5 px-5"
-        id="mobileScroll"
-      ></div>
-    </div>
 
     <!-- Features Section -->
     <div class="max-w-screen-xl mx-auto px-5 py-6">
