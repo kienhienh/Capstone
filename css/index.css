@@ -1,0 +1,171 @@
+.hover-arrow {
+  position: relative;
+  transition: padding-right 0.3s ease;
+}
+
+.hover-arrow::after {
+  content: "→"; /* mũi tên */
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hover-arrow:hover {
+  padding-right: 25px; /* chữ dịch sang phải một chút */
+}
+.hover-text {
+  color: #212529; /* màu mặc định (Bootstrap text-dark) */
+  transition: color 0.3s ease; /* hiệu ứng mượt */
+}
+.hover-text:hover {
+  color: #0d6efd; /* đổi sang xanh dương Bootstrap khi hover */
+}
+
+/* - - - -Client Testimonials - - - - - -*/
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Custom Marquee Animation - KHÔNG dừng khi hover */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 15s linear infinite;
+}
+
+/* Smooth scroll behavior */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Card hover effects - Chỉ mờ xám nhạt, không viền */
+.testimonial-card {
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    background: rgb(135, 134, 134);
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+}
+
+/* Ảnh chỉ mờ xám nhạt khi hover */
+.testimonial-card:hover img {
+    opacity: 0.85;
+    filter: grayscale(30%);
+}
+
+.testimonial-card img {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for mobile */
+.custom-scroll {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+/* Fade gradient on edges */
+.fade-gradient {
+    position: relative;
+}
+
+.fade-gradient::before,
+.fade-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.fade-gradient::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.fade-gradient::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+@media (max-width: 768px) {
+    .fade-gradient::before,
+    .fade-gradient::after {
+        width: 50px;
+    }
+}
+
+/* Mobile navigation dots */
+.mobile-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.mobile-dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: #d1d5db;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mobile-dots button.active {
+    width: 24px;
+    background-color: #4f46e5;
+}
+
+@media (min-width: 768px) {
+    .mobile-dots {
+        display: none;
+    }
+}
