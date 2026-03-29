@@ -1,16 +1,25 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Typography Example Post</title>
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -24,6 +33,84 @@
         },
       };
     </script>
+    <style>
+      /* Custom styles cho phần chuyển đổi từ Tailwind */
+      .feature-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .feature-card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .badge-pill-custom {
+        border-radius: 50rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .text-indigo {
+        color: #4f46e5;
+      }
+      .bg-indigo-light {
+        background-color: #eef2ff;
+      }
+      .border-indigo-light {
+        border-color: #c7d2fe;
+      }
+      .text-slate-600 {
+        color: #475569;
+      }
+      .bg-slate-50 {
+        background-color: #f8fafc;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
+      }
+      .marquee-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-content {
+        display: flex;
+        gap: 1.5rem;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .marquee-content {
+          animation: none;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+      }
+      .fade-gradient::before,
+      .fade-gradient::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .fade-gradient::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .fade-gradient::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+    </style>
   </head>
   <body class="bg-white text-slate-800">
     <!-- ========== HEADER ========== -->
@@ -76,6 +163,11 @@
                   class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >Blog</a
                 >
+                <a
+                  href="./notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >404 Page</a
+                >
               </div>
             </details>
             <a
@@ -125,6 +217,7 @@
         </div>
       </div>
     </header>
+
     <div class="container my-5">
       <article class="mx-auto" id="top" style="max-width: 800px">
         <h1 class="mb-1 text-center py-2 fw-light fs-5 text-info">
@@ -278,7 +371,7 @@
           duis id in.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             Ipsum et cupidatat mollit exercitation enim duis sunt irure aliqua
             reprehenderit mollit. Pariatur Lorem pariatur laboris do culpa do
             elit irure. Eiusmod amet nulla voluptate velit culpa et aliqua ad
@@ -294,7 +387,7 @@
           commodo proident in duis aliquip minim.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             "Qui est sit et reprehenderit aute est esse enim aliqua id aliquip
             ea anim. Pariatur sint reprehenderit mollit velit voluptate enim
             consectetur sint enim. Quis exercitation proident elit non id qui
@@ -305,7 +398,7 @@
           Ipsum excepteur cupidatat sunt minim ad eiusmod tempor sit.
         </p>
         <blockquote class="blockquote">
-          <p class="fw-normal border-start border-3 px-2">
+          <p class="fw-normal border-start px-2">
             "Deserunt excepteur adipisicing culpa pariatur cillum laboris
             ullamco nisi fugiat cillum officia. In cupidatat nulla aliquip
             tempor ad Lorem Lorem quis voluptate officia consectetur pariatur ex
@@ -366,35 +459,29 @@
         <p><a class="text-dark" href="#top">[Top]</a></p>
 
         <h4 class="mt-4 fw-bold">Horizontal rule</h4>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-bottom border-3 py-5">
-            In dolore velit aliquip labore mollit minim tempor veniam eu veniam
-            ad in sint aliquip mollit mollit. Ex occaecat non deserunt elit
-            laborum sunt tempor sint consequat culpa culpa qui sit. Irure ad
-            commodo eu voluptate mollit cillum cupidatat veniam proident amet
-            minim reprehenderit.
-          </p>
-        </blockquote>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non
-            sit labore anim elit veniam Lorem minim commodo eiusmod irure do
-            minim nisi. Dolor amet cillum excepteur consequat sint non sint.
-          </p>
-        </blockquote>
+        <p class="fw-normal border-bottom py-5">
+          In dolore velit aliquip labore mollit minim tempor veniam eu veniam ad
+          in sint aliquip mollit mollit. Ex occaecat non deserunt elit laborum
+          sunt tempor sint consequat culpa culpa qui sit. Irure ad commodo eu
+          voluptate mollit cillum cupidatat veniam proident amet minim
+          reprehenderit.
+        </p>
+        <p class="fw-normal py-5">
+          In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non
+          sit labore anim elit veniam Lorem minim commodo eiusmod irure do minim
+          nisi. Dolor amet cillum excepteur consequat sint non sint.
+        </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
 
-        <h2 class="mt-5 lh-1">Table</h2>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in
-            pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat
-            duis eu enim exercitation deserunt ea laborum occaecat
-            reprehenderit. Et incididunt dolor commodo consequat mollit nisi
-            proident non pariatur in et incididunt id. Eu ut et Lorem ea ex
-            magna minim ipsum ipsum do.
-          </p>
-        </blockquote>
+        <h2 class="mt-5 fw-bold fs-3">Table</h2>
+        <p class="fw-normal py-4">
+          Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in
+          pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat
+          duis eu enim exercitation deserunt ea laborum occaecat reprehenderit.
+          Et incididunt dolor commodo consequat mollit nisi proident non
+          pariatur in et incididunt id. Eu ut et Lorem ea ex magna minim ipsum
+          ipsum do.
+        </p>
         <table class="table table-bordered">
           <thead class="table-light">
             <tr>
@@ -436,19 +523,17 @@
             </tr>
           </tbody>
         </table>
-        <blockquote class="blockquote">
-          <p class="fw-normal border-3 py-5">
-            Minim id consequat adipisicing cupidatat laborum culpa veniam non
-            consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt
-            nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris
-            ullamco nostrud laboris non irure laboris. Cillum dolore labore
-            Lorem deserunt mollit voluptate esse incididunt ex dolor.
-          </p>
-        </blockquote>
+        <p class="fw-normal py-5">
+          Minim id consequat adipisicing cupidatat laborum culpa veniam non
+          consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt
+          nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris
+          ullamco nostrud laboris non irure laboris. Cillum dolore labore Lorem
+          deserunt mollit voluptate esse incididunt ex dolor.
+        </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
         <h4 class="mt-4 fw-bold">Code</h4>
         <h4 class="mt-4 fw-bold">Inline code</h4>
-        <p class="fw-normal border-3 py-4">
+        <p class="fw-normal py-4">
           Ad amet irure est magna id mollit Lorem in do duis enim. Excepteur
           velit nisi magna ea pariatur pariatur ullamco fugiat deserunt sint non
           sint. Duis duis est `code in text` velit velit aute culpa ex quis
@@ -459,7 +544,7 @@
           deserunt.
         </p>
         <h4 class="mt-4 fw-bold">Highlighted</h4>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum
           Lorem proident. In sint dolor ullamco ad do adipisicing amet id
           excepteur Lorem aliquip sit irure veniam laborum duis cillum. Aliqua
@@ -474,7 +559,7 @@
           />
         </div>
 
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Ex amet id ex aliquip id do laborum excepteur exercitation elit sint
           commodo occaecat nostrud est. Nostrud pariatur esse veniam laborum non
           sint magna sit laboris minim in id. Aliqua pariatur pariatur excepteur
@@ -482,7 +567,7 @@
         </p>
         <p><a class="text-dark" href="#top">[Top]</a></p>
         <h4 class="mt-4 fw-bold">Inline elements</h4>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Sint ea anim ipsum ad commodo cupidatat do
           <b>exercitation</b> incididunt et minim ad labore sunt. Minim deserunt
           labore laboris velit nulla incididunt ipsum nulla. Ullamco ad laborum
@@ -503,7 +588,7 @@
             class="img-fluid"
           />
         </div>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Proident sit veniam in est proident officia adipisicing ea tempor
           cillum non cillum velit deserunt. Voluptate laborum incididunt sit
           consectetur Lorem irure incididunt voluptate nostrud. Commodo ut
@@ -514,7 +599,7 @@
           <u><b>excepteur proident</b></u> Lorem minim adipisicing nostrud
           mollit ad ut voluptate do nulla esse occaecat aliqua sint anim.
         </p>
-        <p class="fw-light border-3 py-4">
+        <p class="fw-light py-4">
           Incididunt in culpa cupidatat mollit cillum qui proident sit. In
           cillum aliquip incididunt voluptate magna amet cupidatat cillum
           pariatur sint aliqua est enim <b>anim</b> voluptate. Magna aliquip
