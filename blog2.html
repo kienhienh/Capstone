@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Astroship Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-badge {
+            background: #e5e7eb;
+            color: #374151;
+            font-size: 0.625rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-login {
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category {
+            color: #4f46e5;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .blog-meta span {
+            font-weight: 500;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-prev {
+            background: #f9fafb;
+            color: #374151;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-prev:hover {
+            background: #f3f4f6;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-links a {
+            width: 2rem;
+            height: 2rem;
+            background: #e5e7eb;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #d1d5db;
+        }
+
+        .footer-section h3 {
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #4f46e5;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom styles cho phần chuyển đổi từ Tailwind */
+      .feature-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .feature-card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .badge-pill-custom {
+        border-radius: 50rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .text-indigo {
+        color: #4f46e5;
+      }
+      .bg-indigo-light {
+        background-color: #eef2ff;
+      }
+      .border-indigo-light {
+        border-color: #c7d2fe;
+      }
+      .text-slate-600 {
+        color: #475569;
+      }
+      .bg-slate-50 {
+        background-color: #f8fafc;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
+      }
+      .marquee-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-content {
+        display: flex;
+        gap: 1.5rem;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .marquee-content {
+          animation: none;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+      }
+      .fade-gradient::before,
+      .fade-gradient::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .fade-gradient::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .fade-gradient::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                Astroship
+                <span class="logo-badge">PRO</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html#alpha">Pages</a></li>
+                <li><a href="./pricing.html">Pricing</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./blog1.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="#" class="btn-login">Log in</a>
+                <a href="#" class="btn-primary">Try for Free</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Our Blog</h1>
+            <p>We write about building startups and thoughts going on our mind.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1629904853893-c2c8981a1dc5_Z1fiIn0.avif" alt="Machine Learning">
+                <div class="category">Courses</div>
+                <h2>Cloud Computing Trends to Watch</h2>
+                <div class="blog-meta">
+                    <span>Marcell Ziemann</span>
+                    <span>•</span>
+                    <time>Wed Oct 18 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1608222351212-18fe0ec7b13b_ZevWJE.avif" alt="User Experience">
+                <div class="category">UX Design</div>
+                <h2>Designing Better User Experiences for SaaS Platforms</h2>
+                <div class="blog-meta">
+                    <span>Sophia Martinez</span>
+                    <span>•</span>
+                    <time>Fri Sep 22 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 3 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1556742049-0cfed4f6a45d_ZXP95x.avif" alt="API Integration">
+                <div class="category">Development</div>
+                <h2>Building Scalable APIs for Modern SaaS Applications</h2>
+                <div class="blog-meta">
+                    <span>James Wilson</span>
+                    <span>•</span>
+                    <time>Mon Aug 14 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 4 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1554260570-e9689a3418b8_ZbUxUh.avif" alt="Team Collaboration">
+                <div class="category">Productivity</div>
+                <h2>Remote Team Collaboration Tools That Actually Work</h2>
+                <div class="blog-meta">
+                    <span>Emma Thompson</span>
+                    <span>•</span>
+                    <time>Thu Jul 06 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 5 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1520038410233-7141be7e6f97_Z1tx34C.avif" alt="Data Privacy">
+                <div class="category">Security</div>
+                <h2>Data Privacy Compliance: A Guide for SaaS Companies</h2>
+                <div class="blog-meta">
+                    <span>Robert Chen</span>
+                    <span>•</span>
+                    <time>Tue Jun 20 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 6 -->
+            <a href="#" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1630673559640-000a51b4dd28_Z7RAhH.avif" alt="Startup Funding">
+                <div class="category">Business</div>
+                <h2>Funding Strategies for Early-Stage SaaS Startups</h2>
+                <div class="blog-meta">
+                    <span>Olivia Davis</span>
+                    <span>•</span>
+                    <time>Sun May 14 2023</time>
+                </div>
+            </a>
+        </div>
+
+        <!-- Pagination - Changed to Prev -->
+        <div class="pagination">
+            <button class="btn-prev">
+                <a class="text-line-none" href="./blog1.html">← Prev</a>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+   <footer class="bg-slate-100 border-t border-slate-200 py-12">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
+            <a href="/" class="flex items-center gap-1 font-bold text-lg">
+              <span class="text-indigo-600">Astroship</span>
+              <span
+                class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded uppercase"
+                >PRO</span
+              >
+            </a>
+            <p class="mt-4 text-sm text-slate-600 max-w-xs">
+              Astroship Pro is a premium astro website template made for saas &
+              startups. Built with Astro and Tailwind CSS.
+            </p>
+            <div class="flex gap-3 mt-4">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Company</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a href="/about.html" class="hover:text-indigo-600 transition"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="/blog1.html" class="hover:text-indigo-600 transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact.html" class="hover:text-indigo-600 transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Product</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >For Startups</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="/pricing.html" class="hover:text-indigo-600 transition"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Integrations</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Resources</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Guides</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Uptime Status</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-200 mt-8 pt-6 text-center text-sm text-slate-600"
+        >
+          <p>Copyright © 2025 Astroship. All rights reserved.</p>
+          <p class="mt-2">
+            <a href="/terms" class="hover:text-indigo-600 transition">Terms</a>
+            ·
+            <a href="/privacy" class="hover:text-indigo-600 transition"
+              >Privacy</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

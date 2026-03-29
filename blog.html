@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom styles cho phần chuyển đổi từ Tailwind */
+      .feature-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .feature-card:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .badge-pill-custom {
+        border-radius: 50rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .text-indigo {
+        color: #4f46e5;
+      }
+      .bg-indigo-light {
+        background-color: #eef2ff;
+      }
+      .border-indigo-light {
+        border-color: #c7d2fe;
+      }
+      .text-slate-600 {
+        color: #475569;
+      }
+      .bg-slate-50 {
+        background-color: #f8fafc;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
+      }
+      .marquee-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-content {
+        display: flex;
+        gap: 1.5rem;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .marquee-content {
+          animation: none;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+      }
+      .fade-gradient::before,
+      .fade-gradient::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .fade-gradient::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+      .fade-gradient::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-800">
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-5">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="flex items-center gap-1 font-bold text-xl">
+            <span class="text-indigo-600">Astroship</span>
+            <span
+              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
+              >PRO</span
+            >
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6">
+            <details class="relative">
+              <summary
+                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
+              >
+                Pages
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </summary>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
+              >
+                <a
+                  href="./index.html#alpha"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Features</a
+                >
+                <a
+                  href="integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Integrations</a
+                >
+                <a
+                  href="blog.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >Blog</a
+                >
+                <a
+                  href="./notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  >404 Page</a
+                >
+              </div>
+            </details>
+            <a
+              href="pricing.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Pricing</a
+            >
+            <a href="about.html" class="text-indigo-600 font-medium">About</a>
+            <a
+              href="/blog1.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="text-slate-600 hover:text-indigo-600 font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
+            >
+              Try for Free
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container my-5">
+      <article class="mx-auto" id="top" style="max-width: 800px">
+        <h1 class="mb-1 text-center py-2 fw-light fs-5 text-info">
+          Technology
+        </h1>
+        <h1 class="mb-3 text-center py-1 fw-bold">Typography Example Post</h1>
+        <p class="lead text-center lh-1">
+          Charles North • Fri Aug 05 2022 • #mdx #astro #blog
+        </p>
+        <div class="d-flex justify-content-center">
+          <img
+            src="./img/photo-1630673559640-000a51b4dd28_Z1Ogmgi.avif"
+            alt="Example"
+            class="img-fluid"
+          />
+        </div>
+
+        <p class="fw-normal">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <h2 class="mt-5 fs-1">Heading</h2>
+        <p class="fw-normal">
+          Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum
+          anim qui mollit tempor pariatur nisi minim dolor. Aliquip et
+          adipisicing sit sit fugiat commodo id sunt. Nostrud enim ad commodo
+          incididunt cupidatat in ullamco ullamco Lorem cupidatat velit enim et
+          Lorem. Ut laborum cillum laboris fugiat culpa sint irure do
+          reprehenderit culpa occaecat. Exercitation esse mollit tempor magna
+          aliqua in occaecat aliquip veniam reprehenderit nisi dolor in laboris
+          dolore velit.
+        </p>
+
+        <h2 class="mt-5 fs-2">Heading Two</h2>
+        <p class="fw-normal">
+          Aute officia nulla deserunt do deserunt cillum velit magna. Officia
+          veniam culpa anim minim dolore labore pariatur voluptate id ad est
+          duis quis velit dolor pariatur enim. Incididunt enim excepteur do
+          veniam consequat culpa do voluptate dolor fugiat ad adipisicing sit.
+          Labore officia est adipisicing dolore proident eiusmod exercitation
+          deserunt ullamco anim do occaecat velit. Elit dolor consectetur
+          proident sunt aliquip est do tempor quis aliqua culpa aute. Duis in
+          tempor exercitation pariatur et adipisicing mollit irure tempor ut
+          enim esse commodo laboris proident. Do excepteur laborum anim esse
+          aliquip eu sit id Lorem incididunt elit irure ea nulla dolor et. Nulla
+          amet fugiat qui minim deserunt enim eu cupidatat aute officia do velit
+          ea reprehenderit.
+        </p>
+
+        <h3 class="mt-4 fs-3">Heading Three</h3>
+        <blockquote class="blockquote">
+          <p class="fw-normal">
+            Voluptate cupidatat cillum elit quis ipsum eu voluptate fugiat
+            consectetur enim. Quis ut voluptate culpa ex anim aute consectetur
+            dolore proident voluptate exercitation eiusmod. Esse in do anim
+            magna minim culpa sint. Adipisicing ipsum consectetur proident
+            ullamco magna sit amet aliqua aute fugiat laborum exercitation duis
+            et.
+          </p>
+        </blockquote>
+
+        <h4 class="mt-4">Heading Four</h4>
+        <blockquote class="blockquote">
+          <p class="fw-light">
+            Commodo fugiat aliqua minim quis pariatur mollit id tempor. Non
+            occaecat minim esse enim aliqua adipisicing nostrud duis consequat
+            eu adipisicing qui. Minim aliquip sit excepteur ipsum consequat
+            laborum pariatur excepteur. Veniam fugiat et amet ad elit anim
+            laborum duis mollit occaecat et et ipsum et reprehenderit. Occaecat
+            aliquip dolore adipisicing sint labore occaecat officia fugiat. Quis
+            adipisicing exercitation exercitation eu amet est laboris sunt
+            nostrud ipsum reprehenderit ullamco. Enim sint ut consectetur id
+            anim aute voluptate exercitation mollit dolore magna magna est
+            Lorem. Ut adipisicing adipisicing aliqua ullamco voluptate labore
+            nisi tempor esse magna incididunt.
+          </p>
+        </blockquote>
+
+        <h5 class="mt-4 fw-light">Heading Five</h5>
+        <blockquote class="blockquote">
+          <p class="fw-light">
+            Veniam enim esse amet veniam deserunt laboris amet enim consequat.
+            Minim nostrud deserunt cillum consectetur commodo eu enim nostrud
+            ullamco occaecat excepteur. Aliquip et ut est commodo enim dolor
+            amet sint excepteur. Amet ad laboris laborum deserunt sint sunt
+            aliqua commodo ex duis deserunt enim est ex labore ut. Duis
+            incididunt velit adipisicing non incididunt adipisicing adipisicing.
+            Ad irure duis nisi tempor eu dolor fugiat magna et consequat tempor
+            eu ex dolore. Mollit esse nisi qui culpa ut nisi ex proident culpa
+            cupidatat cillum culpa occaecat anim. Ut officia sit ea nisi ea
+            excepteur nostrud ipsum et nulla.
+          </p>
+        </blockquote>
+
+        <h6 class="mt-4 fw-light">Heading Six</h6>
+        <blockquote class="blockquote">
+          <p class="fw-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </blockquote>
+
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+
+        <h4 class="mt-4 fw-bold">Paragraphs</h4>
+        <blockquote class="blockquote">
+          <p class="fw-light">
+            Incididunt ex adipisicing ea ullamco consectetur in voluptate
+            proident fugiat tempor deserunt reprehenderit ullamco id dolore
+            laborum. Do laboris laboris minim incididunt qui consectetur
+            exercitation adipisicing dolore et magna consequat magna anim sunt.
+            Officia fugiat Lorem sunt pariatur incididunt Lorem reprehenderit
+            proident irure. Dolore ipsum aliqua mollit ad officia fugiat sit eu
+            aliquip cupidatat ipsum duis laborum laborum fugiat esse. Voluptate
+            anim ex dolore deserunt ea ex eiusmod irure. Occaecat excepteur
+            aliqua exercitation aliquip dolor esse eu eu. Officia dolore laborum
+            aute incididunt commodo nisi velit est est elit et dolore elit
+            exercitation. Enim aliquip magna id ipsum aliquip consectetur ad
+            nulla quis. Incididunt pariatur dolor consectetur cillum enim velit
+            cupidatat laborum quis ex. Officia irure in non voluptate
+            adipisicing sit amet tempor duis dolore deserunt enim ut.
+            Reprehenderit incididunt in ad anim et deserunt deserunt Lorem
+            laborum quis. Enim aute anim labore proident laboris voluptate elit
+            excepteur in. Ex labore nulla velit officia ullamco Lorem Lorem id
+            do. Dolore ullamco ipsum magna dolor pariatur voluptate ipsum id
+            occaecat ipsum. Dolore tempor quis duis commodo quis quis enim.
+          </p>
+        </blockquote>
+
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+
+        <h4 class="mt-4 fw-bold">Blockquotes</h4>
+        <p>
+          Ad nisi laborum aute cupidatat magna deserunt eu id laboris id.
+          Aliquip nulla cupidatat sint ex Lorem mollit laborum dolor amet est ut
+          esse aute. Nostrud ex consequat id incididunt proident ipsum minim
+          duis aliqua ut ex et ad quis. Laborum sint esse cillum anim nulla
+          cillum consectetur aliqua sit. Nisi excepteur cillum labore amet
+          excepteur commodo enim occaecat consequat ipsum proident exercitation
+          duis id in.
+        </p>
+        <blockquote class="blockquote">
+          <p class="fw-normal border-start px-2">
+            Ipsum et cupidatat mollit exercitation enim duis sunt irure aliqua
+            reprehenderit mollit. Pariatur Lorem pariatur laboris do culpa do
+            elit irure. Eiusmod amet nulla voluptate velit culpa et aliqua ad
+            reprehenderit sit ut.
+          </p>
+        </blockquote>
+        <p class="fw-light">
+          Labore ea magna Lorem consequat aliquip consectetur cillum duis
+          dolore. Et veniam dolor qui incididunt minim amet laboris sit. Dolore
+          ad esse commodo et dolore amet est velit ut nisi ea. Excepteur ea
+          nulla commodo dolore anim dolore adipisicing eiusmod labore id enim
+          esse quis mollit deserunt est. Minim ea culpa voluptate nostrud
+          commodo proident in duis aliquip minim.
+        </p>
+        <blockquote class="blockquote">
+          <p class="fw-normal border-start px-2">
+            "Qui est sit et reprehenderit aute est esse enim aliqua id aliquip
+            ea anim. Pariatur sint reprehenderit mollit velit voluptate enim
+            consectetur sint enim. Quis exercitation proident elit non id qui
+            culpa dolore esse aliquip consequat."
+          </p>
+        </blockquote>
+        <p class="fw-light">
+          Ipsum excepteur cupidatat sunt minim ad eiusmod tempor sit.
+        </p>
+        <blockquote class="blockquote">
+          <p class="fw-normal border-start px-2">
+            "Deserunt excepteur adipisicing culpa pariatur cillum laboris
+            ullamco nisi fugiat cillum officia. In cupidatat nulla aliquip
+            tempor ad Lorem Lorem quis voluptate officia consectetur pariatur ex
+            in est duis. Mollit id esse est elit exercitation voluptate nostrud
+            nisi laborum magna dolore dolore tempor in est consectetur."
+          </p>
+        </blockquote>
+        <p class="fw-light">
+          Adipisicing voluptate ipsum culpa voluptate id aute laboris labore
+          esse fugiat veniam ullamco occaecat do ut. Tempor et esse
+          reprehenderit veniam proident ipsum irure sit ullamco et labore ea
+          excepteur nulla labore ut. Ex aute minim quis tempor in eu id id irure
+          ea nostrud dolor esse.
+        </p>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+
+        <h4 class="mt-4 fw-bold">Lists</h4>
+        <h4 class="mt-4 fw-bold">Ordered List</h4>
+        <ol>
+          <li>Logan</li>
+          <li>Lychee</li>
+          <li>
+            Excepteur ad cupidatat do elit laborum amet cillum reprehenderit
+            consequat quis. Deserunt officia esse aliquip consectetur duis ut
+            labore laborum commodo aliquip aliquip velit pariatur dolore.
+          </li>
+          <li>Marionberry</li>
+          <li>
+            Melon
+            <ul>
+              <li>Cantaloupe</li>
+              <li>Honeydew</li>
+              <li>Watermelon</li>
+            </ul>
+          </li>
+          <li>Miracle fruit</li>
+          <li>Mulberry</li>
+        </ol>
+
+        <h4 class="mt-4 fw-bold">Unordered List</h4>
+        <ul>
+          <li>Olive</li>
+          <li>
+            Orange
+            <ul>
+              <li>Blood orange</li>
+              <li>Clementine</li>
+            </ul>
+          </li>
+          <li>Papaya</li>
+          <li>
+            Ut aute ipsum occaecat nisi culpa Lorem id occaecat cupidatat id id
+            magna laboris ad duis. Fugiat cillum dolore veniam nostrud proident
+            sint consectetur eiusmod irure adipisicing.
+          </li>
+          <li>Passionfruit</li>
+        </ul>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+
+        <h4 class="mt-4 fw-bold">Horizontal rule</h4>
+        <p class="fw-normal border-bottom py-5">
+          In dolore velit aliquip labore mollit minim tempor veniam eu veniam ad
+          in sint aliquip mollit mollit. Ex occaecat non deserunt elit laborum
+          sunt tempor sint consequat culpa culpa qui sit. Irure ad commodo eu
+          voluptate mollit cillum cupidatat veniam proident amet minim
+          reprehenderit.
+        </p>
+        <p class="fw-normal py-5">
+          In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non
+          sit labore anim elit veniam Lorem minim commodo eiusmod irure do minim
+          nisi. Dolor amet cillum excepteur consequat sint non sint.
+        </p>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+
+        <h2 class="mt-5 fw-bold fs-3">Table</h2>
+        <p class="fw-normal py-4">
+          Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in
+          pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat
+          duis eu enim exercitation deserunt ea laborum occaecat reprehenderit.
+          Et incididunt dolor commodo consequat mollit nisi proident non
+          pariatur in et incididunt id. Eu ut et Lorem ea ex magna minim ipsum
+          ipsum do.
+        </p>
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th>Table Heading 1</th>
+              <th>Table Heading 2</th>
+              <th>Center align</th>
+              <th>Right align</th>
+              <th>Table Heading 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Item 1</th>
+              <th>Item 2</th>
+              <th>Item 3</th>
+              <th>Item 4</th>
+              <th>Item 5</th>
+            </tr>
+            <tr>
+              <th>Item 1</th>
+              <th>Item 2</th>
+              <th>Item 3</th>
+              <th>Item 4</th>
+              <th>Item 5</th>
+            </tr>
+            <tr>
+              <th>Item 1</th>
+              <th>Item 2</th>
+              <th>Item 3</th>
+              <th>Item 4</th>
+              <th>Item 5</th>
+            </tr>
+            <tr>
+              <th>Item 1</th>
+              <th>Item 2</th>
+              <th>Item 3</th>
+              <th>Item 4</th>
+              <th>Item 5</th>
+            </tr>
+          </tbody>
+        </table>
+        <p class="fw-normal py-5">
+          Minim id consequat adipisicing cupidatat laborum culpa veniam non
+          consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt
+          nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris
+          ullamco nostrud laboris non irure laboris. Cillum dolore labore Lorem
+          deserunt mollit voluptate esse incididunt ex dolor.
+        </p>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+        <h4 class="mt-4 fw-bold">Code</h4>
+        <h4 class="mt-4 fw-bold">Inline code</h4>
+        <p class="fw-normal py-4">
+          Ad amet irure est magna id mollit Lorem in do duis enim. Excepteur
+          velit nisi magna ea pariatur pariatur ullamco fugiat deserunt sint non
+          sint. Duis duis est `code in text` velit velit aute culpa ex quis
+          pariatur pariatur laborum aute pariatur duis tempor sunt ad. Irure
+          magna voluptate dolore consectetur consectetur irure esse. Anim magna
+          `<strong>in culpa qui officia</strong>` dolor eiusmod esse amet aute
+          cupidatat aliqua do id voluptate cupidatat reprehenderit amet labore
+          deserunt.
+        </p>
+        <h4 class="mt-4 fw-bold">Highlighted</h4>
+        <p class="fw-light py-4">
+          Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum
+          Lorem proident. In sint dolor ullamco ad do adipisicing amet id
+          excepteur Lorem aliquip sit irure veniam laborum duis cillum. Aliqua
+          occaecat minim cillum deserunt magna sunt laboris do do irure ea
+          nostrud consequat ut voluptate ex.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img
+            src="./img/Ảnh chụp màn hình 2026-03-29 062016.png"
+            alt="Example"
+            class="img-fluid"
+          />
+        </div>
+
+        <p class="fw-light py-4">
+          Ex amet id ex aliquip id do laborum excepteur exercitation elit sint
+          commodo occaecat nostrud est. Nostrud pariatur esse veniam laborum non
+          sint magna sit laboris minim in id. Aliqua pariatur pariatur excepteur
+          adipisicing irure culpa consequat commodo et ex id ad.
+        </p>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+        <h4 class="mt-4 fw-bold">Inline elements</h4>
+        <p class="fw-light py-4">
+          Sint ea anim ipsum ad commodo cupidatat do
+          <b>exercitation</b> incididunt et minim ad labore sunt. Minim deserunt
+          labore laboris velit nulla incididunt ipsum nulla. Ullamco ad laborum
+          ea qui et anim in laboris exercitation tempor sit officia laborum
+          reprehenderit culpa velit quis.<b>Consequat commodo</b> reprehenderit
+          duis <u><b>irure</b></u> esse esse exercitation minim enim Lorem
+          dolore duis irure. Nisi Lorem reprehenderit ea amet excepteur dolor
+          excepteur magna labore proident voluptate ipsum. Reprehenderit ex esse
+          deserunt aliqua ea officia mollit Lorem nulla magna enim. Et ad ipsum
+          labore enim ipsum <b>cupidatat consequat</b>. Commodo non ea cupidatat
+          magna deserunt dolore ipsum velit nulla elit veniam nulla eiusmod
+          proident officia.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img
+            src="./img/photo-1471128466710-c26ff0d26143.jpg"
+            alt="Example"
+            class="img-fluid"
+          />
+        </div>
+        <p class="fw-light py-4">
+          Proident sit veniam in est proident officia adipisicing ea tempor
+          cillum non cillum velit deserunt. Voluptate laborum incididunt sit
+          consectetur Lorem irure incididunt voluptate nostrud. Commodo ut
+          eiusmod tempor cupidatat esse enim minim ex anim consequat. Mollit
+          sint culpa qui laboris quis consectetur ad sint esse. Amet anim anim
+          minim ullamco et duis non irure. Sit tempor adipisicing ea laboris
+          <b>`culpa ex duis sint`</b> anim aute reprehenderit id eu ea. Aute
+          <u><b>excepteur proident</b></u> Lorem minim adipisicing nostrud
+          mollit ad ut voluptate do nulla esse occaecat aliqua sint anim.
+        </p>
+        <p class="fw-light py-4">
+          Incididunt in culpa cupidatat mollit cillum qui proident sit. In
+          cillum aliquip incididunt voluptate magna amet cupidatat cillum
+          pariatur sint aliqua est enim <b>anim</b> voluptate. Magna aliquip
+          proident incididunt id duis pariatur eiusmod incididunt commodo culpa
+          dolore sit. Culpa do nostrud elit ad exercitation anim pariatur non
+          minim nisi <b>adipisicing sunt officia</b>. Do deserunt magna mollit
+          Lorem commodo ipsum do cupidatat mollit enim ut elit veniam ea
+          voluptate. <br /><br />
+          Reprehenderit non eu quis in ad elit esse qui aute id
+          <u><b>incididunt</b></u> dolore cillum. Esse laboris consequat dolor
+          anim exercitation tempor aliqua deserunt velit magna laboris. Culpa
+          culpa minim duis amet mollit do quis amet commodo nulla irure.
+        </p>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+        <h4 class="mt-4 fw-bold">MDX</h4>
+        <div class="d-flex justify-content-center">
+          <img
+            src="./img/Ảnh chụp màn hình 2026-03-29 063905.png"
+            alt="Example"
+            class="img-fluid"
+          />
+        </div>
+        <button type="button" class="btn btn-primary btn-lg mt-3 mb-2">
+          Click Me
+        </button>
+        <p><a class="text-dark" href="#top">[Top]</a></p>
+      </article>
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="#" class="btn btn-outline-secondary">
+          <span class="me-2">&larr;</span>
+          Back to Blog
+        </a>
+      </div>
+    </div>
+    <footer class="bg-slate-100 border-t border-slate-200 py-12">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
+            <a href="/" class="flex items-center gap-1 font-bold text-lg">
+              <span class="text-indigo-600">Astroship</span>
+              <span
+                class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded uppercase"
+                >PRO</span
+              >
+            </a>
+            <p class="mt-4 text-sm text-slate-600 max-w-xs">
+              Astroship Pro is a premium astro website template made for saas &
+              startups. Built with Astro and Tailwind CSS.
+            </p>
+            <div class="flex gap-3 mt-4">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
+              >
+                <svg
+                  class="w-4 h-4 text-slate-600"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Company</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a href="/about.html" class="hover:text-indigo-600 transition"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a href="/blog1.html" class="hover:text-indigo-600 transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact.html" class="hover:text-indigo-600 transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Product</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >For Startups</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="/pricing.html" class="hover:text-indigo-600 transition"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Integrations</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-900 mb-3">Resources</h4>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Guides</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-indigo-600 transition"
+                  >Uptime Status</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-200 mt-8 pt-6 text-center text-sm text-slate-600"
+        >
+          <p>Copyright © 2025 Astroship. All rights reserved.</p>
+          <p class="mt-2">
+            <a href="/terms" class="hover:text-indigo-600 transition">Terms</a>
+            ·
+            <a href="/privacy" class="hover:text-indigo-600 transition"
+              >Privacy</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
