@@ -44,49 +44,190 @@
 <body class="bg-white text-slate-800">
 
     <!-- ========== HEADER ========== -->
-    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-5">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="/" class="flex items-center gap-1 font-bold text-xl">
-                    <span class="text-indigo-600">Astroship</span>
-                    <span class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded">PRO</span>
-                </a>
+    <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200"
+    >
+      <nav class="max-w-screen-xl mx-auto px-5">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border-2 border-indigo-200 rounded-full hover:border-indigo-400 transition-colors"
+            >
+              <span class="font-bold text-indigo-600 text-lg">Astroship</span>
+              <!-- <span class="text-slate-600 text-lg"></span> -->
+              <span
+                class="uppercase text-[10px] font-bold bg-gray-200 text-slate-700 px-2 py-0.5 rounded-md"
+                >PRO</span
+              >
+            </a>
+          </div>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-6">
-                    <details class="relative">
-                        <summary class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium">
-                            Pages
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                            </svg>
-                        </summary>
-                        <div class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2">
-                            <a href="/features" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Features</a>
-                            <a href="/integrations" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Integrations</a>
-                            <a href="/blog" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Blog</a>
-                            <a href="/404" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">404 Page</a>
-                        </div>
-                    </details>
-                    <a href="/pricing" class="text-slate-600 hover:text-indigo-600 font-medium">Pricing</a>
-                    <a href="/about" class="text-slate-600 hover:text-indigo-600 font-medium">About</a>
-                    <a href="/blog" class="text-slate-600 hover:text-indigo-600 font-medium">Blog</a>
-                    <a href="/contact" class="text-slate-600 hover:text-indigo-600 font-medium">Contact</a>
-                </nav>
-
-                <!-- Auth Buttons -->
-                <div class="flex items-center gap-3">
-                    <a href="#" class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium">Log in</a>
-                    <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2">
-                        Try for Free
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center gap-8">
+            <div class="relative group">
+              <button
+                class="flex items-center gap-1 text-sm text-slate-600 hover:text-indigo-600 transition-colors py-2"
+              >
+                Pages
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left"
+              >
+                <a
+                  href="/menu/features.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >Features</a
+                >
+                <a
+                  href="/menu/integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >Integrations</a
+                >
+                <a
+                  href="/menu/blogDetails.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >Blog Details</a
+                >
+                <div class="border-t border-gray-200 my-1"></div>
+                <a
+                  href="/page/notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >404 Page</a
+                >
+              </div>
             </div>
+            <a
+              href="/page/pricing.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >Pricing</a
+            >
+            <a
+              href="/page/about.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >Blog</a
+            >
+            <a
+              href="/menu/contact.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Right Side Buttons -->
+          <div class="hidden lg:flex items-center gap-4">
+            <a
+              href="#"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-800 transition-colors"
+            >
+              Try for Free
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 text-slate-600 hover:text-indigo-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden py-4 border-t border-gray-200"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pages</a
+            >
+            <a
+              href="/page/pricing.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pricing</a
+            >
+            <a
+              href="/page/about.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Blog</a
+            >
+            <a
+              href="/menu/contact.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Contact</a
+            >
+            <div class="border-t border-gray-200 my-2"></div>
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="mx-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full text-center"
+              >Try for Free</a
+            >
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- ========== PRICING SECTION ========== -->
