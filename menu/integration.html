@@ -1,473 +1,451 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Integrations</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="index.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations | Astroship Pro</title>
+    <meta name="description" content="Connect over 200+ tools with our easy to use integrations.">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["Inter", "sans-serif"] },
-          },
-        },
-      };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
     </script>
+    
     <style>
-      /* Custom styles cho phần chuyển đổi từ Tailwind */
-      .feature-card {
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-      .feature-card:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        border-color: transparent;
-      }
-      .badge-pill-custom {
-        border-radius: 50rem;
-        padding: 0.25rem 0.75rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-      }
-      .text-indigo {
-        color: #4f46e5;
-      }
-      .bg-indigo-light {
-        background-color: #eef2ff;
-      }
-      .border-indigo-light {
-        border-color: #c7d2fe;
-      }
-      .text-slate-600 {
-        color: #475569;
-      }
-      .bg-slate-50 {
-        background-color: #f8fafc;
-      }
-      .gradient-indigo {
-        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
-      }
-      .marquee-container {
-        overflow: hidden;
-        position: relative;
-      }
-      .marquee-content {
-        display: flex;
-        gap: 1.5rem;
-        animation: marquee 30s linear infinite;
-        width: max-content;
-      }
-      @keyframes marquee {
-        0% {
-          transform: translateX(0);
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        100% {
-          transform: translateX(-50%);
+        .gradient-text {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-      }
-      @media (max-width: 768px) {
-        .marquee-content {
-          animation: none;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-        }
-      }
-      .fade-gradient::before,
-      .fade-gradient::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 100px;
-        height: 100%;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .fade-gradient::before {
-        left: 0;
-        background: linear-gradient(to right, white, transparent);
-      }
-      .fade-gradient::after {
-        right: 0;
-        background: linear-gradient(to left, white, transparent);
-      }
     </style>
-  </head>
-  <body class="bg-white text-slate-800">
-    <!-- ========== HEADER ========== -->
-    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
-      <div class="max-w-7xl mx-auto px-5">
-        <div class="flex items-center justify-between h-16">
-          <a href="/" class="flex items-center gap-1 font-bold text-xl">
-            <span class="text-indigo-600">Astroship</span>
-            <span
-              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
-              >PRO</span
-            >
-          </a>
+</head>
+<body class="bg-white text-slate-900 antialiased">
 
-          <nav class="hidden md:flex items-center gap-6">
-            <details class="relative">
-              <summary
-                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
+    <!-- Header -->
+     <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200"
+    >
+      <nav class="max-w-screen-xl mx-auto px-5">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border-2 border-indigo-200 rounded-full hover:border-indigo-400 transition-colors"
+            >
+              <span class="font-bold text-indigo-600 text-lg">Astroship</span>
+              <!-- <span class="text-slate-600 text-lg"></span> -->
+              <span
+                class="uppercase text-[10px] font-bold bg-gray-200 text-slate-700 px-2 py-0.5 rounded-md"
+                >PRO</span
+              >
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center gap-8">
+            <div class="relative group">
+              <button
+                class="flex items-center gap-1 text-sm text-slate-600 hover:text-indigo-600 transition-colors py-2"
               >
                 Pages
                 <svg
-                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
+                  <path d="m6 9 6 6 6-6" />
                 </svg>
-              </summary>
+              </button>
               <div
-                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
+                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left"
               >
                 <a
-                  href="./index.html#alpha"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/menu/features.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >Features</a
                 >
                 <a
-                  href="integration.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/menu/integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >Integrations</a
                 >
                 <a
-                  href="blog.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
-                  >Blog</a
+                  href="/menu/blogDetails.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >Blog Details</a
                 >
+                <div class="border-t border-gray-200 my-1"></div>
                 <a
-                  href="notfound.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/page/notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >404 Page</a
                 >
               </div>
-            </details>
+            </div>
             <a
               href="/page/pricing.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Pricing</a
             >
-            <a href="about.html" class="text-indigo-600 font-medium">About</a>
             <a
-              href="/blog1.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              href="/page/about.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Blog</a
             >
             <a
-              href="contact.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              href="/menu/contact.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Contact</a
             >
-          </nav>
+          </div>
 
-          <div class="flex items-center gap-3">
+          <!-- Right Side Buttons -->
+          <div class="hidden lg:flex items-center gap-4">
             <a
               href="#"
-              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Log in</a
             >
             <a
               href="#"
-              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
+              class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-800 transition-colors"
             >
               Try for Free
               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
                 class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </a>
           </div>
-        </div>
-      </div>
-    </header>
-    <section class="py-5 bg-light">
-      <div class="container text-center">
-        <h2 class="fw-bold mb-4">Integrations</h2>
-        <p class="text-muted mb-5">
-          Connect over 200+ tools with our easy to use integrations
-        </p>
 
-        <div class="container py-5">
-          <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/Slack_icon_2019.svg.png" class="card-img-top mx-auto d-block" style="width:80px;" alt="Slack">
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Slack</h5>
-                  <p class="card-text">Get notified in your Slack channels when a new order is placed.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/images.png" class="card-img-top mx-auto d-block" style="width:80px;" alt="Zapier">
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Zapier</h5>
-                  <p class="card-text">Connect over 200+ tools with our easy to use Zapier integrations.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/images (1).png" class="card-img-top mx-auto d-block" style="width:80px;" alt="Zapier">
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Itercom</h5>
-                  <p class="card-text">Send order updates and emails to your customers via Intercom.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/tải xuống.jpg" class="card-img-top mx-auto d-block" style="width:80px;" alt="Zapier">
-                <div class="card-body">
-                  <h5 class="card-title fw-bold">Shopify</h5>
-                  <p class="card-text">Create order and customers in Shopify when a new order is placed.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/tải xuống (1).jpg" class="card-img-top mx-auto d-block" style="width:80px;" alt="Zapier">
-                <div class="card-body">
-                  <h5 class="card-title">Messenger</h5>
-                  <p class="card-text">Notify your Facebook Messenger when a new order is placed.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card h-100 text-center">
-                <img src="img/discord.png" class="card-img-top mx-auto d-block" style="width:80px;" alt="Zapier">
-                <div class="card-body">
-                  <h5 class="card-title">Discord</h5>
-                  <p class="card-text">Notify your Discord server when a new order is placed.</p>
-                  <a href="#" class="btn btn-noline-primary">View Integration</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="bg-slate-100 border-t border-slate-200 py-12">
-      <div class="max-w-screen-xl mx-auto px-5">
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
-            <a href="/" class="flex items-center gap-1 font-bold text-lg">
-              <span class="text-indigo-600">Astroship</span>
-              <span
-                class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded uppercase"
-                >PRO</span
-              >
-            </a>
-            <p class="mt-4 text-sm text-slate-600 max-w-xs">
-              Astroship Pro is a premium astro website template made for saas &
-              startups. Built with Astro and Tailwind CSS.
-            </p>
-            <div class="flex gap-3 mt-4">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Company</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a href="/about.html" class="hover:text-indigo-600 transition"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Careers</a
-                >
-              </li>
-              <li>
-                <a href="/blog1.html" class="hover:text-indigo-600 transition"
-                  >Blog</a
-                >
-              </li>
-              <li>
-                <a href="/contact.html" class="hover:text-indigo-600 transition"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Product</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >For Startups</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Features</a
-                >
-              </li>
-              <li>
-                <a href="/pricing.html" class="hover:text-indigo-600 transition"
-                  >Pricing</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Integrations</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Resources</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Help Center</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Guides</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Documentation</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Uptime Status</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div
-          class="border-t border-slate-200 mt-8 pt-6 text-center text-sm text-slate-600"
-        >
-          <p>Copyright © 2025 Astroship. All rights reserved.</p>
-          <p class="mt-2">
-            <a href="/terms" class="hover:text-indigo-600 transition">Terms</a>
-            ·
-            <a href="/privacy" class="hover:text-indigo-600 transition"
-              >Privacy</a
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 text-slate-600 hover:text-indigo-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-          </p>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
-      </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden py-4 border-t border-gray-200"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pages</a
+            >
+            <a
+              href="/page/pricing.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pricing</a
+            >
+            <a
+              href="/page/about.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Blog</a
+            >
+            <a
+              href="/menu/contact.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Contact</a
+            >
+            <div class="border-t border-gray-200 my-2"></div>
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="mx-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full text-center"
+              >Try for Free</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="max-w-screen-xl mx-auto px-5">
+            <div class="mt-16 text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+                    Integrations
+                </h1>
+                <p class="text-lg mt-4 text-slate-500 mx-auto max-w-xl">
+                    Connect over 200+ tools with our easy to use integrations.
+                </p>
+            </div>
+
+            <!-- Integrations Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 my-24 gap-x-10 gap-y-24">
+                
+                <!-- Slack -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M25.7457 0C21.8641 0.00289501 18.7226 3.18161 18.7255 7.09855C18.7226 11.0155 21.8669 14.1942 25.7486 14.1971H32.7717V7.10145C32.7746 3.18451 29.6303 0.00579001 25.7457 0C25.7486 0 25.7486 0 25.7457 0ZM25.7457 18.9333H7.02313C3.14148 18.9362 -0.00286108 22.1149 7.84041e-06 26.0319C-0.00573001 29.9488 3.13861 33.1275 7.02026 33.1333H25.7457C29.6274 33.1304 32.7717 29.9517 32.7689 26.0348C32.7717 22.1149 29.6274 18.9362 25.7457 18.9333Z" fill="#36C5F0"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M70.22 26.0319C70.2229 22.1149 67.0786 18.9362 63.1969 18.9333C59.3152 18.9362 56.1709 22.1149 56.1738 26.0319V33.1333H63.1969C67.0786 33.1304 70.2229 29.9517 70.22 26.0319ZM51.4946 26.0319V7.09855C51.4974 3.18451 48.356 0.00579001 44.4743 0C40.5926 0.00289501 37.4483 3.18161 37.4512 7.09855V26.0319C37.4454 29.9488 40.5898 33.1275 44.4714 33.1333C48.3531 33.1304 51.4974 29.9517 51.4946 26.0319Z" fill="#2EB67D"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M44.4704 71C48.352 70.9971 51.4964 67.8184 51.4935 63.9014C51.4964 59.9845 48.352 56.8058 44.4704 56.8029H37.4473V63.9014C37.4444 67.8155 40.5887 70.9942 44.4704 71ZM44.4704 52.0638H63.1959C67.0775 52.0609 70.2219 48.8822 70.219 44.9652C70.2247 41.0483 67.0804 37.8696 63.1987 37.8638H44.4733C40.5916 37.8667 37.4473 41.0454 37.4501 44.9623C37.4473 48.8822 40.5887 52.0609 44.4704 52.0638Z" fill="#ECB22E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.96166e-06 44.9653C-0.00286696 48.8822 3.14147 52.0609 7.02313 52.0638C10.9048 52.0609 14.0491 48.8822 14.0463 44.9653V37.8667H7.02313C3.14147 37.8696 -0.00286696 41.0483 1.96166e-06 44.9653ZM18.7255 44.9653V63.8986C18.7197 67.8155 21.8641 70.9942 25.7457 71C29.6274 70.9971 32.7717 67.8184 32.7688 63.9015V44.971C32.7746 41.0541 29.6302 37.8754 25.7486 37.8696C21.8641 37.8696 18.7226 41.0483 18.7255 44.9653Z" fill="#E01E5A"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Slack</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Get notified in your Slack channels when a new order is placed.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Zapier -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43.7497 35.0153C43.7509 37.5393 43.2956 40.0427 42.4058 42.4047C40.043 43.2944 37.539 43.7504 35.0142 43.7508H34.9847C32.3848 43.7475 29.8938 43.2723 27.5953 42.4058C26.7049 40.0436 26.2491 37.5398 26.25 35.0153V34.9847C26.2488 32.4612 26.7036 29.9582 27.5926 27.5964C29.9552 26.705 32.4598 26.2489 34.985 26.25H35.0145C37.5394 26.2488 40.0437 26.7049 42.4061 27.5961C43.296 29.9577 43.7513 32.4608 43.75 34.9844V35.015L43.7497 35.0153ZM69.5138 29.1668H49.0837L63.5291 14.7202C62.3953 13.1275 61.1305 11.6322 59.748 10.2498V10.2487C58.3654 8.86782 56.8705 7.6042 55.2787 6.4709L40.8321 20.9174V0.487266C38.9108 0.164043 36.9659 0.00106009 35.0175 0L34.9814 0C32.9995 0.00109375 31.0584 0.169531 29.1668 0.487266V20.9174L14.7202 6.4709C13.1281 7.6039 11.6338 8.86842 10.2531 10.2512L10.2454 10.2566C8.86527 11.6373 7.60228 13.1303 6.46953 14.7202L20.9171 29.1668H0.487266C0.487266 29.1668 0 33.0039 0 34.988V35.012C0 36.9961 0.168164 38.9405 0.487266 40.8332H20.9174L6.4698 55.2798C8.74252 58.4691 11.5309 61.2575 14.7202 63.5302L29.1668 49.0826V69.5138C31.086 69.8354 33.0286 69.9981 34.9746 70H35.0241C36.9701 69.9982 38.9126 69.8356 40.8319 69.5138V49.0826L55.2798 63.5302C56.8713 62.3965 58.3658 61.1325 59.748 59.7513L59.7513 59.748C61.1319 58.3656 62.3955 56.871 63.5291 55.2798L49.0815 40.8332H69.5138C69.8318 38.9438 69.9978 37.0051 70 35.0254V34.9746C69.9978 32.9949 69.8318 31.0562 69.5138 29.1668Z" fill="#FF4A00"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Zapier</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Connect over 200+ tools with our easy to use Zapier integrations.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Intercom -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M60.6668 38.4858C60.6601 39.1003 60.4113 39.6873 59.9745 40.1195C59.5376 40.5516 58.9479 40.794 58.3334 40.794C57.7189 40.794 57.1292 40.5516 56.6923 40.1195C56.2554 39.6873 56.0067 39.1003 56 38.4858V17.5C56.0067 16.8855 56.2554 16.2985 56.6923 15.8663C57.1292 15.4341 57.7189 15.1917 58.3334 15.1917C58.9479 15.1917 59.5376 15.4341 59.9745 15.8663C60.4113 16.2985 60.6601 16.8855 60.6668 17.5V38.4858ZM59.8525 53.0909C59.4918 53.3996 50.8482 60.6528 35 60.6528C19.1521 60.6528 10.5087 53.3993 10.1481 53.0906C9.67831 52.6878 9.38776 52.1149 9.34033 51.4979C9.2929 50.8808 9.49247 50.2702 9.89516 49.8004C10.297 49.3312 10.8685 49.0406 11.4843 48.9923C12.1001 48.944 12.7099 49.142 13.18 49.5428C13.317 49.6576 21.0355 55.9858 35.0003 55.9858C49.1403 55.9858 56.7394 49.612 56.8146 49.5477C57.791 48.7091 59.2668 48.8217 60.1048 49.8006C60.5077 50.2704 60.7074 50.881 60.66 51.498C60.6127 52.1151 60.3222 52.688 59.8525 53.0909ZM9.33324 17.5C9.33989 16.8855 9.58866 16.2985 10.0255 15.8663C10.4624 15.4341 11.0521 15.1917 11.6666 15.1917C12.2811 15.1917 12.8708 15.4341 13.3077 15.8663C13.7446 16.2985 13.9933 16.8855 14 17.5V38.4858C13.9933 39.1003 13.7446 39.6873 13.3077 40.1195C12.8708 40.5516 12.2811 40.794 11.6666 40.794C11.0521 40.794 10.4624 40.5516 10.0255 40.1195C9.58866 39.6873 9.33989 39.1003 9.33324 38.4858V17.5ZM21.0003 12.8332C21.0097 12.2206 21.2596 11.6363 21.6961 11.2063C22.1327 10.7764 22.7208 10.5354 23.3335 10.5354C23.9462 10.5354 24.5343 10.7764 24.9709 11.2063C25.4074 11.6363 25.6574 12.2206 25.6668 12.8332V44.0054C25.6574 44.618 25.4074 45.2024 24.9709 45.6323C24.5343 46.0622 23.9462 46.3032 23.3335 46.3032C22.7208 46.3032 22.1327 46.0622 21.6961 45.6323C21.2596 45.2024 21.0097 44.618 21.0003 44.0054V12.8332ZM32.6668 11.6525C32.6667 11.3461 32.727 11.0427 32.8443 10.7596C32.9615 10.4765 33.1334 10.2193 33.3501 10.0026C33.5667 9.78594 33.824 9.61408 34.1071 9.49683C34.3902 9.37959 34.6936 9.31926 35 9.3193C35.3064 9.31923 35.6099 9.37952 35.893 9.49675C36.1761 9.61398 36.4334 9.78584 36.6501 10.0025C36.8668 10.2192 37.0387 10.4764 37.156 10.7595C37.2732 11.0427 37.3336 11.3461 37.3335 11.6525V45.4858C37.3269 46.1003 37.0781 46.6873 36.6412 47.1195C36.2044 47.5516 35.6146 47.794 35.0001 47.794C34.3856 47.794 33.7959 47.5516 33.359 47.1195C32.9222 46.6873 32.6734 46.1003 32.6668 45.4858V11.6525ZM44.3335 12.8332C44.3429 12.2206 44.5928 11.6363 45.0294 11.2063C45.4659 10.7764 46.0541 10.5354 46.6668 10.5354C47.2795 10.5354 47.8676 10.7764 48.3041 11.2063C48.7407 11.6363 48.9906 12.2206 49 12.8332V44.0054C48.9906 44.618 48.7407 45.2024 48.3041 45.6323C47.8676 46.0622 47.2795 46.3032 46.6668 46.3032C46.0541 46.3032 45.4659 46.0622 45.0294 45.6323C44.5928 45.2024 44.3429 44.618 44.3335 44.0054V12.8332ZM61.25 0H8.75C3.91754 0 0 3.91754 0 8.75V61.25C0 66.0822 3.91754 70 8.75 70H61.25C66.0825 70 70 66.0822 70 61.25V8.75C70 3.91754 66.0825 0 61.25 0Z" fill="#1F8DED"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Intercom</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Send order updates and emails to your customers via Intercom.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shopify -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M61.1854 15.6901C61.1304 15.2906 60.7807 15.0695 60.4917 15.0451C60.2033 15.021 54.0986 14.5682 54.0986 14.5682C54.0986 14.5682 49.8588 10.3556 49.3935 9.88933C48.9278 9.42334 48.0185 9.56508 47.6655 9.66906C47.6136 9.68438 46.7392 9.95446 45.2929 10.4024C43.8766 6.32363 41.3771 2.57541 36.9798 2.57541C36.8584 2.57541 36.7335 2.58033 36.6085 2.58745C35.3579 0.932242 33.8088 0.213135 32.4707 0.213135C22.2274 0.213135 17.3337 13.0287 15.7993 19.5412C11.819 20.7755 8.99137 21.6531 8.63019 21.7666C6.40846 22.4641 6.3382 22.5342 6.04647 24.6294C5.82692 26.2156 0.0136719 71.2088 0.0136719 71.2088L45.3117 79.7029L69.8557 74.3889C69.8557 74.3889 61.2395 16.0896 61.1854 15.6901ZM42.7892 11.1773L38.9563 12.3646C38.9577 12.0943 38.959 11.8283 38.959 11.5374C38.959 9.00249 38.6074 6.96146 38.0434 5.34347C40.3091 5.62805 41.8181 8.20813 42.7892 11.1773ZM35.2327 5.84614C35.8627 7.42582 36.2722 9.69287 36.2722 12.7521C36.2722 12.9086 36.2709 13.0517 36.2695 13.1965C33.7768 13.9692 31.0681 14.8082 28.3535 15.6498C29.8777 9.76237 32.7349 6.91878 35.2327 5.84614ZM32.1894 2.96287C32.6315 2.96287 33.0769 3.11309 33.5031 3.4067C30.2203 4.95273 26.7015 8.84652 25.2155 16.6223L18.9583 18.5618C20.6988 12.6309 24.8319 2.96287 32.1894 2.96287Z" fill="#95BF46"/>
+                            <path d="M60.4923 15.0451C60.2038 15.0211 54.0991 14.5682 54.0991 14.5682C54.0991 14.5682 49.8594 10.3556 49.394 9.88935C49.2198 9.71586 48.985 9.62693 48.7395 9.58862L45.3145 79.7023L69.8563 74.3889C69.8563 74.3889 61.24 16.0896 61.1859 15.6901C61.131 15.2906 60.7813 15.0695 60.4923 15.0451Z" fill="#5E8E3E"/>
+                            <path d="M36.9797 28.6179L33.9533 37.6275C33.9533 37.6275 31.3018 36.2112 28.0515 36.2112C23.2865 36.2112 23.0467 39.2039 23.0467 39.958C23.0467 44.0729 33.7644 45.6496 33.7644 55.288C33.7644 62.8712 28.9586 67.7542 22.4788 67.7542C14.703 67.7542 10.7266 62.9109 10.7266 62.9109L12.8086 56.0263C12.8086 56.0263 16.8961 59.5384 20.3451 59.5384C22.5989 59.5384 23.5156 57.7625 23.5156 56.4649C23.5156 51.0973 14.7227 50.8579 14.7227 42.0379C14.7227 34.6145 20.0466 27.4308 30.7932 27.4308C34.934 27.4308 36.9797 28.6179 36.9797 28.6179Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Shopify</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Create orders and customers in Shopify when a new order is placed.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Messenger -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M34.9992 0C15.4167 0 0.240234 14.3297 0.240234 33.6832C0.240234 43.8067 4.39445 52.5541 11.1575 58.5977C11.7241 59.1078 12.0666 59.8134 12.0946 60.5749L12.2835 66.7511C12.3464 68.7214 14.3816 70 16.1861 69.2105L23.0819 66.1713C23.6653 65.9132 24.3198 65.8638 24.9353 66.0316C28.1034 66.9049 31.4814 67.366 34.9992 67.366C54.5817 67.366 69.7581 53.0362 69.7581 33.683C69.7581 14.3297 54.5817 0 34.9992 0Z" fill="url(#paint0_linear)"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1302 43.5342L24.341 27.353C25.9636 24.7819 29.4464 24.139 31.8802 25.9626L39.9999 32.0481C40.3627 32.3191 40.8036 32.4651 41.2565 32.4638C41.7093 32.4625 42.1495 32.3142 42.5107 32.0411L53.477 23.7268C54.9386 22.616 56.8551 24.3698 55.8688 25.9208L45.6649 42.095C44.0424 44.6661 40.5595 45.3089 38.1257 43.4853L30.006 37.3999C29.6433 37.1288 29.2023 36.9829 28.7495 36.9842C28.2966 36.9854 27.8564 37.1338 27.4952 37.4068L16.522 45.7281C15.0604 46.839 13.1439 45.0853 14.1302 43.5342Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="paint0_linear" x1="0" y1="0" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#00B2FF"/>
+                                    <stop offset="1" stop-color="#006AFF"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Messenger</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Notify your Facebook Messenger when a new order is placed.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Discord -->
+                <div class="rounded-2xl relative flex items-center flex-col p-6 group bg-white transition ring-2 ring-slate-200/50 shadow hover:ring-slate-200 hover:shadow-md">
+                    <div class="ring-2 ring-slate-200/50 w-16 h-16 group-hover:ring-slate-200 transition shadow shadow-slate-100 rounded-lg grid place-items-center -mt-16 bg-white">
+                        <svg class="w-8 h-8" viewBox="0 0 96 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M79.6454 5.93104C90.0122 21.1732 95.132 38.366 93.2181 58.1589C93.21 58.2426 93.1664 58.3195 93.0976 58.37C85.247 64.1346 77.6408 67.633 70.1414 69.9531C70.083 69.9708 70.0205 69.9698 69.9627 69.9503C69.9048 69.9307 69.8546 69.8936 69.8189 69.8441C68.0863 67.4334 66.5121 64.8919 65.1329 62.223C65.0537 62.0658 65.126 61.8765 65.289 61.8145C67.7892 60.8725 70.1666 59.7434 72.4534 58.4067C72.6335 58.3011 72.645 58.043 72.4786 57.919C71.9933 57.5588 71.5125 57.1801 71.0524 56.8015C70.9663 56.7315 70.8505 56.7177 70.7529 56.7648C55.9066 63.6205 39.6432 63.6205 24.6213 56.7648C24.5238 56.7211 24.4079 56.7361 24.3241 56.8049C23.8652 57.1836 23.3833 57.5588 22.9025 57.919C22.7361 58.043 22.7499 58.3011 22.9312 58.4067C25.218 59.7182 27.5954 60.8725 30.0922 61.8191C30.2539 61.8811 30.3308 62.0658 30.2505 62.223C28.9011 64.8953 27.3269 67.4368 25.5622 69.8475C25.4853 69.9451 25.3591 69.9898 25.2398 69.9531C17.7759 67.633 10.1697 64.1346 2.31909 58.37C2.25369 58.3195 2.20665 58.2392 2.19976 58.1554C0.600275 41.0349 3.86007 23.6998 15.7599 5.9276C15.7885 5.88055 15.8321 5.84384 15.8826 5.82204C21.7379 3.1348 28.0108 1.15781 34.5671 0.0287627C34.6864 0.0104041 34.8057 0.0654798 34.8677 0.171042C35.6777 1.6053 36.6037 3.4446 37.2302 4.94771C44.141 3.89209 51.1598 3.89209 58.2152 4.94771C58.8417 3.47673 59.7355 1.6053 60.5421 0.171042C60.5709 0.118674 60.6154 0.0767191 60.6694 0.0511679C60.7234 0.0256167 60.784 0.0177752 60.8427 0.0287627C67.4025 1.16126 73.6754 3.13824 79.526 5.82204C79.5777 5.84384 79.6201 5.88055 79.6454 5.93104ZM40.7436 38.4831C40.8159 33.4218 37.1258 29.2338 32.4937 29.2338C27.8995 29.2338 24.245 33.3851 24.245 38.4831C24.245 43.5799 27.9717 47.7312 32.4937 47.7312C37.0891 47.7312 40.7436 43.5799 40.7436 38.4831ZM71.244 38.4831C71.3163 33.4218 67.6262 29.2338 62.9953 29.2338C58.3999 29.2338 54.7454 33.3851 54.7454 38.4831C54.7454 43.5799 58.4722 47.7312 62.9953 47.7312C67.6262 47.7312 71.244 43.5799 71.244 38.4831Z" fill="#5865F2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-medium mt-4">Discord</h3>
+                    <p class="text-slate-600 mt-2 text-center">
+                        Notify your Discord server when a new order is placed.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-sm px-2 transition py-1 text-indigo-600 hover:text-indigo-600 font-medium">
+                            View Integration →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-14 bg-slate-100 border-t border-slate-100 mt-10">
+        <div class="max-w-screen-xl mx-auto px-5">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
+                    <a href="/" class="flex items-center gap-1 font-bold text-lg">
+                        <span class="text-indigo-600">Astro</span>
+                        <span class="text-slate-600">ship</span>
+                        <span class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded uppercase">PRO</span>
+                    </a>
+                    <p class="mt-4 text-sm text-slate-700 max-w-xs">
+                        Astroship Pro is a premium astro website template made for saas & startups. Built with Astro and Tailwind CSS.
+                    </p>
+                    <div class="flex gap-3 mt-4 items-center">
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 rounded w-8 h-8 inline-flex items-center justify-center text-slate-500 transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 rounded w-8 h-8 inline-flex items-center justify-center text-slate-500 transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 rounded w-8 h-8 inline-flex items-center justify-center text-slate-500 transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-sm text-slate-800">Company</h3>
+                    <div class="flex flex-col mt-3 space-y-2">
+                        <a href="/about" class="text-sm text-slate-600 hover:text-indigo-600 transition">About</a>
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">Careers</a>
+                        <a href="/blog" class="text-sm text-slate-600 hover:text-indigo-600 transition">Blog</a>
+                        <a href="/contact" class="text-sm text-slate-600 hover:text-indigo-600 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-sm text-slate-800">Product</h3>
+                    <div class="flex flex-col mt-3 space-y-2">
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">For Startups</a>
+                        <a href="/menu/features.html" class="text-sm text-slate-600 hover:text-indigo-600 transition">Features</a>
+                        <a href="/pricing" class="text-sm text-slate-600 hover:text-indigo-600 transition">Pricing</a>
+                        <a href="/menu/integration.html" class="text-sm text-slate-600 hover:text-indigo-600 transition">Integrations</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-medium text-sm text-slate-800">Resources</h3>
+                    <div class="flex flex-col mt-3 space-y-2">
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">Help Center</a>
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">Guides</a>
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">Documentation</a>
+                        <a href="#" class="text-sm text-slate-600 hover:text-indigo-600 transition">Uptime Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-14 pt-8 border-t border-slate-200">
+                <p class="text-center text-sm text-slate-600">
+                    Copyright © 2025 Astroship. All rights reserved.
+                </p>
+                <p class="text-center text-xs text-slate-600 mt-2">
+                    <a href="/terms" class="hover:text-indigo-500 transition">Terms</a>
+                    ·
+                    <a href="/privacy" class="hover:text-indigo-500 transition">Privacy</a>
+                </p>
+            </div>
+        </div>
     </footer>
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
 </html>

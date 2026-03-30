@@ -33,6 +33,36 @@
         },
       };
     </script>
+
+    <style>
+  .logo-gradient-border {
+    position: relative;
+    padding: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4, #4f46e5);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .logo-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: white;
+    border-radius: 9999px;
+    z-index: 0;
+  }
+  .logo-gradient-border > * {
+    position: relative;
+    z-index: 1;
+  }
+  .logo-gradient-border:hover {
+    filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.4));
+  }
+</style>
     <style>
       /* Custom styles cho phần chuyển đổi từ Tailwind */
       .feature-card {
@@ -117,13 +147,15 @@
     <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-5">
         <div class="flex items-center justify-between h-16">
-          <a href="/" class="flex items-center gap-1 font-bold text-xl">
-            <span class="text-indigo-600">Astroship</span>
-            <span
-              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
-              >PRO</span
-            >
-          </a>
+          <a href="/" 
+                  class="inline-flex items-center gap-1 px-4 py-2 rounded-full 
+                          border border-indigo-200 
+                          bg-white 
+                          hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-100
+                          transition-all duration-300">
+                  <span class="font-bold text-xl text-indigo-600">Astroship</span>
+                  <span class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded-md">PRO</span>
+                </a>
 
           <nav class="hidden md:flex items-center gap-6">
             <details class="relative">
@@ -149,7 +181,7 @@
                 class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
               >
                 <a
-                  href="./index.html#alpha"
+                  href="/menu/features.html"
                   class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
                   >Features</a
                 >
@@ -171,7 +203,7 @@
               </div>
             </details>
             <a
-              href="pricing.html"
+              href="/page/pricing.html"
               class="text-slate-600 hover:text-indigo-600 font-medium"
               >Pricing</a
             >
@@ -229,7 +261,7 @@
         </p>
         <div class="d-flex justify-content-center">
           <img
-            src="./img/photo-1630673559640-000a51b4dd28_Z1Ogmgi.avif"
+            src="https://astroship-pro.web3templates.com/_astro/photo-1630673559640-000a51b4dd28_Z1Ogmgi.avif"
             alt="Example"
             class="img-fluid"
           />
@@ -553,7 +585,7 @@
         </p>
         <div class="d-flex justify-content-center">
           <img
-            src="./img/Ảnh chụp màn hình 2026-03-29 062016.png"
+            src="/img/diachianhcode.png"
             alt="Example"
             class="img-fluid"
           />
@@ -583,7 +615,7 @@
         </p>
         <div class="d-flex justify-content-center">
           <img
-            src="./img/photo-1471128466710-c26ff0d26143.jpg"
+            src="https://images.unsplash.com/photo-1471128466710-c26ff0d26143?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2MDc4MTk3Mw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
             alt="Example"
             class="img-fluid"
           />
@@ -617,7 +649,7 @@
         <h4 class="mt-4 fw-bold">MDX</h4>
         <div class="d-flex justify-content-center">
           <img
-            src="./img/Ảnh chụp màn hình 2026-03-29 063905.png"
+            src="/img/diachianhcode.png"
             alt="Example"
             class="img-fluid"
           />
