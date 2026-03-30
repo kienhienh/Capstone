@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Astroship Pro</title>
+     <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    
+
+     <style>
+  .logo-gradient-border {
+    position: relative;
+    padding: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4, #4f46e5);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .logo-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: white;
+    border-radius: 9999px;
+    z-index: 0;
+  }
+  .logo-gradient-border > * {
+    position: relative;
+    z-index: 1;
+  }
+  .logo-gradient-border:hover {
+    filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.4));
+  }
+</style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+        /* ... rest of your CSS ... */
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .btn-prev, .btn-next {
+            background: #f9fafb;
+            color: #374151;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid #e5e7eb;  /* Thêm viền này */
+            cursor: pointer;
+        }
+
+        .btn-prev:hover, .btn-next:hover {
+            background: #f3f4f6;
+            border-color: #d1d5db;  /* Viền đậm hơn khi hover */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-badge {
+            background: #e5e7eb;
+            color: #374151;
+            font-size: 0.625rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-login {
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category {
+            color: #4f46e5;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .blog-meta span {
+            font-weight: 500;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-prev {
+            background: #f9fafb;
+            color: #374151;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-prev:hover {
+            background: #f3f4f6;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-links a {
+            width: 2rem;
+            height: 2rem;
+            background: #e5e7eb;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #d1d5db;
+        }
+
+        .footer-section h3 {
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #4f46e5;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <!-- Header -->
+<header class="border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-5">
+        <div class="flex items-center justify-between h-16">
+            <a href="/" 
+                  class="inline-flex items-center gap-1 px-4 py-2 rounded-full 
+                          border border-indigo-200 
+                          bg-white 
+                          hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-100
+                          transition-all duration-300">
+                  <span class="font-bold text-xl text-indigo-600">Astroship</span>
+                  <span class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded-md">PRO</span>
+                </a>
+
+            <nav class="hidden md:flex items-center gap-6">
+                <details class="relative group">
+                    <summary class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium list-none">
+                        Pages
+                        <svg class="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </summary>
+                    <div class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2 z-50">
+                        <a href="/menu/features.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Features</a>
+                        <a href="integration.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Integrations</a>
+                        <a href="blog.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Blog</a>
+                        <a href="notfound.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">404 Page</a>
+                    </div>
+                </details>
+                <a href="pricing.html" class="text-slate-600 hover:text-indigo-600 font-medium">Pricing</a>
+                <a href="about.html" class="text-slate-600 hover:text-indigo-600 font-medium">About</a>
+                <a href="blog.html" class="text-slate-600 hover:text-indigo-600 font-medium">Blog</a>
+                <a href="../menu/contact.html" class="text-slate-600 hover:text-indigo-600 font-medium">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#" class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium">Log in</a>
+                <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2">
+                    Try for Free
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Our Blog</h1>
+            <p>We write about building startups and thoughts going on our mind.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="/blog/cloud-computing-trends.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1629904853893-c2c8981a1dc5_Z1fiIn0.avif" alt="Machine Learning">
+                <div class="category">Courses</div>
+                <h2>Cloud Computing Trends to Watch</h2>
+                <div class="blog-meta">
+                    <span>Marcell Ziemann</span>
+                    <span>•</span>
+                    <time>Wed Oct 18 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="/blog/data-analytics-saas.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1608222351212-18fe0ec7b13b_ZevWJE.avif" alt="User Experience">
+                <div class="category">UX Design</div>
+                <h2>Designing Better User Experiences for SaaS Platforms</h2>
+                <div class="blog-meta">
+                    <span>Sophia Martinez</span>
+                    <span>•</span>
+                    <time>Fri Sep 22 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 3 -->
+            <a href="/blog/mastering-customer-retention.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1556742049-0cfed4f6a45d_ZXP95x.avif" alt="API Integration">
+                <div class="category">Development</div>
+                <h2>Building Scalable APIs for Modern SaaS Applications</h2>
+                <div class="blog-meta">
+                    <span>James Wilson</span>
+                    <span>•</span>
+                    <time>Mon Aug 14 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 4 -->
+            <a href="/blog/growth-strategies-business.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1554260570-e9689a3418b8_ZbUxUh.avif" alt="Team Collaboration">
+                <div class="category">Productivity</div>
+                <h2>Remote Team Collaboration Tools That Actually Work</h2>
+                <div class="blog-meta">
+                    <span>Emma Thompson</span>
+                    <span>•</span>
+                    <time>Thu Jul 06 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 5 -->
+            <a href="/blog/saas-subscription-models-pros-cons2.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1520038410233-7141be7e6f97_Z1tx34C.avif" alt="Data Privacy">
+                <div class="category">Security</div>
+                <h2>Data Privacy Compliance: A Guide for SaaS Companies</h2>
+                <div class="blog-meta">
+                    <span>Robert Chen</span>
+                    <span>•</span>
+                    <time>Tue Jun 20 2023</time>
+                </div>
+            </a>
+
+            <!-- Blog Post 6 -->
+            <a href="/blog/typography-example.html" class="blog-card">
+                <img src="https://astroship-pro.web3templates.com/_astro/photo-1630673559640-000a51b4dd28_Z7RAhH.avif" alt="Startup Funding">
+                <div class="category">Business</div>
+                <h2>Funding Strategies for Early-Stage SaaS Startups</h2>
+                <div class="blog-meta">
+                    <span>Olivia Davis</span>
+                    <span>•</span>
+                    <time>Sun May 14 2023</time>
+                </div>
+            </a>
+        </div>
+
+        <!-- Pagination - Changed to Prev -->
+       
+         <div class="pagination">
+                 <a href="blog.html" class="btn-next">← Prev</a>
+            </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    Astroship
+                    <span class="logo-badge">PRO</span>
+                </div>
+                <p>Astroship Pro is a premium astro website template made for saas & startups. Built with Astro and Tailwind CSS.</p>
+                <div class="social-links">
+                    <a href="#">𝕏</a>
+                    <a href="#">f</a>
+                    <a href="#">in</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#">For Startups</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Integrations</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Uptime Status</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 Astroship. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
