@@ -3,1036 +3,1174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capstone</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="index.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["Inter", "sans-serif"] },
-          },
-        },
-      };
-    </script>
-    <style>
-      /* Custom styles cho phần chuyển đổi từ Tailwind */
-      .feature-card {
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-      .feature-card:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        border-color: transparent;
-      }
-      .badge-pill-custom {
-        border-radius: 50rem;
-        padding: 0.25rem 0.75rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-      }
-      .text-indigo {
-        color: #4f46e5;
-      }
-      .bg-indigo-light {
-        background-color: #eef2ff;
-      }
-      .border-indigo-light {
-        border-color: #c7d2fe;
-      }
-      .text-slate-600 {
-        color: #475569;
-      }
-      .bg-slate-50 {
-        background-color: #f8fafc;
-      }
-      .gradient-indigo {
-        background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
-      }
-      .marquee-container {
-        overflow: hidden;
-        position: relative;
-      }
-      .marquee-content {
-        display: flex;
-        gap: 1.5rem;
-        animation: marquee 30s linear infinite;
-        width: max-content;
-      }
-      @keyframes marquee {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-      @media (max-width: 768px) {
-        .marquee-content {
-          animation: none;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-        }
-      }
-      .fade-gradient::before,
-      .fade-gradient::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 100px;
-        height: 100%;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .fade-gradient::before {
-        left: 0;
-        background: linear-gradient(to right, white, transparent);
-      }
-      .fade-gradient::after {
-        right: 0;
-        background: linear-gradient(to left, white, transparent);
-      }
-    </style>
-  </head>
-  <body class="bg-white text-slate-800">
-    <!-- ========== HEADER ========== -->
-    <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
-      <div class="max-w-7xl mx-auto px-5">
-        <div class="flex items-center justify-between h-16">
-          <a href="/" class="flex items-center gap-1 font-bold text-xl">
-            <span class="text-indigo-600">Astroship</span>
-            <span
-              class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-1 rounded"
-              >PRO</span
-            >
-          </a>
+    <title>Astroship Pro - Create websites with Astroship</title>
 
-          <nav class="hidden md:flex items-center gap-6">
-            <details class="relative">
-              <summary
-                class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 cursor-pointer font-medium"
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="bg-white text-slate-900 antialiased">
+    <!-- Header/Navigation -->
+    <header
+      class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200"
+    >
+      <nav class="max-w-screen-xl mx-auto px-5">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border-2 border-indigo-200 rounded-full hover:border-indigo-400 transition-colors"
+            >
+              <span class="font-bold text-indigo-600 text-lg">Astroship</span>
+              <!-- <span class="text-slate-600 text-lg"></span> -->
+              <span
+                class="uppercase text-[10px] font-bold bg-gray-200 text-slate-700 px-2 py-0.5 rounded-md"
+                >PRO</span
+              >
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center gap-8">
+            <div class="relative group">
+              <button
+                class="flex items-center gap-1 text-sm text-slate-600 hover:text-indigo-600 transition-colors py-2"
               >
                 Pages
                 <svg
-                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
+                  <path d="m6 9 6 6 6-6" />
                 </svg>
-              </summary>
+              </button>
               <div
-                class="absolute top-full left-0 mt-1 w-48 bg-white border border-slate-200 rounded-lg shadow-lg py-2"
+                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left"
               >
                 <a
-                  href="./index.html#alpha"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/menu/features.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >Features</a
                 >
                 <a
-                  href="integration.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/menu/integration.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >Integrations</a
                 >
                 <a
-                  href="blog.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
-                  >Blog</a
+                  href="/menu/blogDetails.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                  >Blog Details</a
                 >
+                <div class="border-t border-gray-200 my-1"></div>
                 <a
-                  href="./notfound.html"
-                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                  href="/page/notfound.html"
+                  class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
                   >404 Page</a
                 >
               </div>
-            </details>
+            </div>
             <a
-              href="pricing.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              href="/page/pricing.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Pricing</a
             >
-            <a href="about.html" class="text-indigo-600 font-medium">About</a>
             <a
-              href="/blog1.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              href="/page/about.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Blog</a
             >
             <a
-              href="contact.html"
-              class="text-slate-600 hover:text-indigo-600 font-medium"
+              href="/menu/contact.html"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Contact</a
             >
-          </nav>
+          </div>
 
-          <div class="flex items-center gap-3">
+          <!-- Right Side Buttons -->
+          <div class="hidden lg:flex items-center gap-4">
             <a
               href="#"
-              class="hidden sm:block text-slate-600 hover:text-indigo-600 font-medium"
+              class="text-sm text-slate-600 hover:text-indigo-600 transition-colors"
               >Log in</a
             >
             <a
               href="#"
-              class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition flex items-center gap-2"
+              class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-800 transition-colors"
             >
               Try for Free
               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
                 class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </a>
           </div>
-        </div>
-      </div>
-    </header>
-    <section class="container py-5">
-      <div class="row align-items-center">
-        <div class="col-md-5">
-          <h2 class="fw-bold fs-1">Create websites with Astroship™</h2>
-          <p class="text-muted fs-5">
-            Pro version of popular Astroship starter template made for startups.
-            Built with Astro and Tailwind CSS.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill me-2"
-            >Buy Template - $49</a
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 text-slate-600 hover:text-indigo-600"
           >
-          <a href="#" class="btn btn-outline-primary rounded-pill"
-            >Free Version</a
-          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
-        <div class="col-md-6 text-center" style="width: 700px">
-          <img
-            src="/img/hero-screenshot.dpXn-2za_Z252oyA.avif"
-            class="img-fluid"
-            alt="Website illustration"
-          />
-        </div>
-      </div>
-    </section>
-    <section class="py-5 bg-light">
-      <div class="mt-16 border-y py-6 border-slate-100">
-          <h2 class="text-center text-slate-500 text-sm font-medium">
-            Trusted by popular startups you know
-          </h2>
-          <div
-            class="flex gap-x-8 gap-y-4 md:gap-20 lg:gap-28 items-center justify-center mt-6 flex-wrap grayscale opacity-60"
-          >
-            <div class="text-gray-500 my-2 h-7 md:h-9">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 97 48"
-                fill="currentColor"
-                class="h-full w-auto"
-              >
-                <path
-                  d="M52.51 4v5.42l-6.76 1.44V5.45zm14.07 8.44c-2.64 0-4.34 1.23-5.28 2.08l-.35-1.66h-5.93v31.14l6.74-1.42.03-7.56c.97.69 2.4 1.68 4.77 1.68 4.82 0 9.22-3.85 9.22-12.31-.03-7.74-4.47-11.96-9.2-11.96zm-1.62 18.4c-1.59 0-2.53-.56-3.18-1.26l-.03-9.91c.7-.77 1.67-1.31 3.21-1.31 2.45 0 4.15 2.72 4.15 6.22 0 3.58-1.67 6.25-4.15 6.25zm32.04-6.17c0-6.84-3.34-12.23-9.73-12.23-6.41 0-10.29 5.39-10.29 12.18 0 8.04 4.58 12.1 11.16 12.1 3.21 0 5.63-.72 7.46-1.74v-5.34c-1.83.91-3.93 1.47-6.6 1.47-2.61 0-4.93-.91-5.23-4.06h13.18c0-.15.01-.48.02-.86v-.01c.02-.52.03-1.14.03-1.51zm-13.31-2.54c0-3.02 1.86-4.27 3.56-4.27 1.64 0 3.4 1.25 3.4 4.27h-6.96zm-31.18-9.24h-6.76v23.36h6.76V13.03zm-14.44.01l.43 1.98c1.59-2.88 4.74-2.3 5.6-1.98v6.14c-.84-.29-3.53-.67-5.12 1.39v15.83h-6.74V13.03h5.83zm-13.04-5.8l-6.57 1.39-.03 21.39c0 3.95 3 6.86 6.98 6.86 2.21 0 3.83-.4 4.72-.88v-5.42c-.86.35-5.12 1.58-5.12-2.38v-9.48h5.12v-5.69h-5.12v-5.79zm-15.92 11.14c-1.43 0-2.29.4-2.29 1.44 0 1.14 1.48 1.64 3.32 2.26 3 1.01 6.95 2.34 6.97 7.27 0 4.78-3.85 7.53-9.46 7.53-2.32 0-4.85-.45-7.36-1.52v-6.36c2.26 1.23 5.12 2.14 7.36 2.14 1.51 0 2.59-.4 2.59-1.63 0-1.26-1.61-1.84-3.55-2.53-2.96-1.06-6.69-2.39-6.69-6.84 0-4.73 3.64-7.56 9.11-7.56 2.24 0 4.45.35 6.68 1.23v6.28c-2.05-1.09-4.63-1.71-6.68-1.71z"
-                />
-              </svg>
-            </div>
-            <div class="text-gray-500 my-2 h-7 md:h-9">
-              <svg
-                viewBox="0 0 106 31"
-                fill="currentColor"
-                class="h-full w-auto"
-              >
-                <path
-                  d="M11.57 5.63v8.41H3.84V5.63H.17v20.08h3.67v-8.13h7.73v8.13h3.67V5.63h-3.67zm15.4 13.59c0 .81-.32 1.58-.89 2.15-.57.57-1.34.89-2.14.89-.81 0-1.58-.32-2.15-.89-.57-.57-.89-1.34-.89-2.15v-8.6h-3.48v8.6c0 1.73.69 3.38 1.91 4.6 1.22 1.22 2.87 1.91 4.6 1.91 1.73 0 3.38-.69 4.6-1.91 1.22-1.22 1.91-2.87 1.91-4.6v-8.6h-3.47v8.6zm25.77-7.71c0-1.76-1.17-2.32-2.44-2.32-1.03 0-2.39.78-3.28 1.73l-2.28-2.68c1.14-1.54 3.45-2.6 5.34-2.6 2.38 0 4.07 1.23 4.07 3.47 0 6.8-8.31 4.64-8.31 8.44 0 1.17 1.14 2.21 2.44 2.21 1.03 0 1.7-.48 2.64-1.54l2.53 2.63c-1.62 1.99-3.61 3-6 3-3.58 0-5.47-2.23-5.47-5.74 0-7.55 8.31-5.2 8.31-8.44h-.01zm-12.53-.79c-1.72 0-2.92.5-4.08 1.64V5.75H32.64v12.25c0 4.59 3.32 7.72 7.04 7.72 4.13 0 7.77-3.2 7.77-7.5 0-4.25-3.35-7.5-7.25-7.5v.01zm-.02 11.5c-.78 0-1.54-.23-2.19-.67-.65-.44-1.16-1.06-1.46-1.78-.3-.72-.38-1.51-.23-2.28.15-.77.53-1.47 1.08-2.02.55-.55 1.26-.93 2.02-1.08.77-.15 1.56-.07 2.28.23.72.3 1.34.81 1.78 1.46.44.65.67 1.41.67 2.19 0 1.05-.42 2.05-1.16 2.79-.74.74-1.74 1.16-2.79 1.16zm37.96-4.2c0-4.31-3.63-7.5-7.77-7.5-3.72 0-7.04 3.14-7.04 7.72v12.25h3.48v-6.62c1.16 1.14 2.37 1.64 4.09 1.64 3.89 0 7.24-3.25 7.24-7.5h-.01zm-3.3.04c0 .78-.23 1.54-.67 2.19-.44.65-1.06 1.16-1.78 1.46-.72.3-1.51.38-2.28.23-.77-.15-1.47-.53-2.02-1.08-.55-.55-.93-1.25-1.08-2.02-.15-.77-.07-1.56.23-2.28.3-.72.81-1.34 1.46-1.78.65-.44 1.41-.67 2.19-.67 1.05 0 2.05.42 2.79 1.16.74.74 1.16 1.74 1.16 2.79h-.01zm11.16-7.81v-3.5c-.46-.22-.85-.56-1.13-.99-.27-.43-.42-.93-.42-1.44v-.08c0-.71.28-1.4.79-1.9.5-.51 1.19-.79 1.9-.79h.08c.71 0 1.4.28 1.9.79.51.5.79 1.19.79 1.9v.08c0 .51-.15 1.01-.42 1.44-.28.43-.67.77-1.13.99v3.5c1.33.2 2.58.76 3.63 1.6l9.6 7.48c-.07-.25-.11-.5-.11-.76-.01-.6.17-1.19.5-1.69.33-.5.81-.89 1.36-1.12.56-.23 1.17-.29 1.76-.17.59.12 1.13.4 1.56.83.42.42.71.96.83 1.56.12.59.06 1.2-.17 1.76-.23.56-.62 1.03-1.12 1.36-.5.33-1.09.51-1.69.5-.25 0-.5-.04-.76-.11l-9.48-7.44c-1.28.85-1.72 2.36-1.72 3.9 0 1.54.44 3.05 1.28 4.33l2.87 2.87c.23-.07.47-.11.72-.11.49 0 .97.15 1.38.42.41.27.73.66.92 1.12.19.46.24.96.14 1.44-.1.48-.34.92-.69 1.27-.35.35-.79.59-1.27.69-.48.1-.98.05-1.44-.14-.46-.19-.85-.51-1.12-.92-.27-.41-.42-.89-.42-1.38 0-.25.04-.49.11-.72l-2.85-2.85c-.93.71-2.01 1.21-3.16 1.44-1.15.23-2.33.2-3.46-.07-1.13-.29-2.18-.8-3.06-1.56-.88-.76-1.58-1.72-2.04-2.8-.46-1.08-.67-2.25-.61-3.42.06-1.17.38-2.31.94-3.33.56-1.02 1.36-1.9 2.32-2.56.96-.66 2.06-1.1 3.21-1.28v-.01z"
-                />
-              </svg>
-            </div>
-            <div class="text-gray-500 my-2 h-7 md:h-9">
-              <svg
-                fill="currentColor"
-                viewBox="0 0 175 48"
-                class="h-full w-auto"
-              >
-                <path
-                  d="M37.68 0h-32.06c-2.95 0-5.34 2.39-5.34 5.34v32.06c0 2.95 2.39 5.34 5.34 5.34h32.06c2.95 0 5.34-2.39 5.34-5.34v-32.06c0-2.95-2.39-5.34-5.34-5.34zm-10.33 7.84c0-.79.64-1.43 1.43-1.43.78 0 1.43.64 1.43 1.43v19.04c0 .79-.64 1.43-1.43 1.43-.79 0-1.43-.64-1.43-1.43V7.84zm-7.12-.72c0-.79.64-1.43 1.43-1.43.78 0 1.43.64 1.43 1.43v20.66c0 .79-.64 1.43-1.43 1.43-.79 0-1.43-.64-1.43-1.43V7.12zm-7.12.72c0-.79.64-1.43 1.43-1.43.78 0 1.42.64 1.42 1.43v19.04c0 .79-.64 1.43-1.42 1.43-.79 0-1.43-.64-1.43-1.43V7.84zm-7.12 2.85c0-.79.64-1.43 1.42-1.43.79 0 1.43.64 1.43 1.43v12.82c0 .79-.64 1.43-1.43 1.43-.78 0-1.42-.64-1.42-1.43V10.69zm30.85 21.73c-.22.19-5.5 4.62-15.18 4.62-9.68 0-14.96-4.43-15.18-4.62-.6-.51-.67-1.41-.15-2.01.51-.6 1.41-.67 2.01-.16.08.07 4.8 3.93 13.32 3.93 8.64 0 13.28-3.89 13.32-3.93.6-.51 1.5-.44 2.01.15.52.6.45 1.5-.15 2.01l-.01.01zm.5-8.92c0 .79-.64 1.43-1.43 1.43-.78 0-1.42-.64-1.42-1.43V10.69c0-.79.64-1.43 1.42-1.43.79 0 1.43.64 1.43 1.43v12.82z"
-                />
-              </svg>
-            </div>
-            <div class="text-gray-500 my-2 h-7 md:h-9">
-              <svg
-                viewBox="0 0 175 48"
-                fill="currentColor"
-                class="h-full w-auto"
-              >
-                <path
-                  d="M56.65 25.38c-4.14 0-7.49-3.44-7.49-7.67 0-4.24 3.35-7.67 7.49-7.67s7.49 3.43 7.49 7.67c0 4.24-3.35 7.67-7.49 7.67zm7.52.97c.1 1.18 1.04 2.68 2.67 2.68h.95c.37 0 .67-.3.67-.67V7.37h-.01c-.02-.35-.31-.64-.67-.64h-2.96c-.35 0-.65.29-.67.64h-.01v1.71c-1.81-2.23-4.67-3.16-7.53-3.16-6.51 0-11.78 5.29-11.78 11.8 0 6.52 5.27 11.81 11.78 11.81v0c2.86 0 5.98-1.11 7.53-3.16l.01-.02h-.01zm40.89-.97c-4.14 0-7.49-3.44-7.49-7.67 0-4.24 3.35-7.67 7.49-7.67 4.14 0 7.49 3.43 7.49 7.67 0 4.24-3.35 7.67-7.49 7.67zm7.52.97c.1 1.18 1.04 2.68 2.67 2.68h.95c.37 0 .67-.3.67-.67V7.37h-.01c-.02-.35-.31-.64-.67-.64h-2.96c-.35 0-.65.29-.67.64h-.01v1.71c-1.81-2.23-4.67-3.16-7.53-3.16-6.51 0-11.78 5.29-11.78 11.8 0 6.52 5.27 11.81 11.78 11.81v0c2.86 0 5.98-1.11 7.53-3.16l.01-.02h-.01zm51.15-.2c-4.06 0-7.36-3.37-7.36-7.52 0-4.15 3.3-7.52 7.36-7.52 4.06 0 7.36 3.37 7.36 7.52 0 4.15-3.3 7.52-7.36 7.52zm7.38.95c.1 1.15 1.03 2.62 2.63 2.62h.94c.36 0 .66-.3.66-.66V7.56h-.01c-.02-.35-.31-.62-.66-.62h-2.9c-.35 0-.64.28-.66.62h-.01v1.67c-1.78-2.19-4.58-3.1-7.39-3.1-6.39 0-11.57 5.18-11.57 11.57 0 6.39 5.18 11.57 11.57 11.57v0c2.81 0 5.88-1.09 7.39-3.1l.01-.01h-.01z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-    </section>
-    <section class="container py-5 mt-4" id="alpha">
-      <div class="text-center mb-5">
-        <span
-          class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-          >TWO-COL FEATURES</span
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden py-4 border-t border-gray-200"
         >
-        <div class="row mb-4 text-center">
-          <h2 class="fw-bold fs-1 py-3">Supercharge Your Workflows</h2>
-          <p class="text-muted fs-5">
-            Unlock your team's true potential with our state-of-the-art SaaS
-            platform. From intelligent task management to real-time
-            collaboration and top-notch data security, we have everything you
-            need to streamline your workflows and achieve high productivity.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="container py-5">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center">
-          <img
-            src="/img/6.SnSOjqTF_Z2kOY0y.avif"
-            class="img-fluid"
-            alt="Website illustration"
-          />
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <span
-              class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-              >TWO-COL FEATURES</span
+          <div class="flex flex-col gap-2">
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pages</a
+            >
+            <a
+              href="/page/pricing.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Pricing</a
+            >
+            <a
+              href="/page/about.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >About</a
+            >
+            <a
+              href="/page/blog.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Blog</a
+            >
+            <a
+              href="/menu/contact.html"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Contact</a
+            >
+            <div class="border-t border-gray-200 my-2"></div>
+            <a
+              href="#"
+              class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="mx-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full text-center"
+              >Try for Free</a
             >
           </div>
-          <h2 class="fw-normal fs-4">
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="overflow-x-clip">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <main class="grid lg:grid-cols-5 place-items-center relative">
+          <!-- Gradient background blobs -->
+          <div
+            class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-200 right-0 top-0"
+          ></div>
+          <div
+            class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-200 right-56 top-10"
+          ></div>
+
+          <!-- Left side content -->
+          <div class="max-w-sm md:max-w-max lg:col-span-2">
+            <h1
+              class="text-3xl lg:text-4xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter text-wrap-balance text-center lg:text-start"
+            >
+              Create websites with Astroship™
+            </h1>
+            <p
+              class="text-lg mt-4 max-w-lg text-slate-600 text-wrap-balance text-center lg:text-start"
+            >
+              Pro version of popular Astroship starter template made for
+              startups. Built with Astro and Tailwind CSS.
+            </p>
+            <div
+              class="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-3"
+            >
+              <a
+                href="https://web3templates.com/templates/astroship-pro-astro-saas-website-template"
+                target="_blank"
+                rel="noopener"
+                class="rounded-full text-center transition px-7 py-2.5 bg-indigo-600 text-white hover:bg-indigo-800 flex gap-1 items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Buy Template — $49
+              </a>
+              <a
+                href="https://github.com/surjithctly/astroship"
+                rel="noopener"
+                target="_blank"
+                class="rounded-full text-center transition px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600 flex gap-1 items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Free Version
+              </a>
+            </div>
+          </div>
+
+          <!-- Right side image -->
+          <div class="py-3 lg:col-span-3 lg:-mr-44 relative z-0">
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-indigo-200/30 to-purple-200/30 blur-3xl -z-10 rounded-2xl"
+            ></div>
+            <picture>
+              <img
+                src="https://astroship-pro.web3templates.com/_astro/hero-screenshot.dpXn-2za_Z252oyA.avif"
+                alt="Astronaut in the air"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="eager"
+                fetchpriority="high"
+                width="1183"
+                height="787"
+                decoding="async"
+                class="rounded-2xl shadow-none bg-transparent relative z-10"
+              />
+            </picture>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Trusted By Section -->
+    <div class="max-w-screen-xl mx-auto px-5 py-12">
+      <div>
+        <h2
+          class="text-center text-slate-500 text-sm font-medium uppercase tracking-wide"
+        >
+          Trusted by popular startups you know
+        </h2>
+        <div
+          class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 mt-8"
+        >
+          <!-- Stripe Logo -->
+          <div
+            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 97 48"
+              class="h-full w-auto"
+            >
+              <path
+                d="m52.5131 4v5.42063l-6.763 1.44197v-5.44736zm14.0657 8.4375c-2.6406 0-4.3381 1.2283-5.2812 2.0828l-.3502-1.6556h-5.9278v31.1353l6.7361-1.4153.0269-7.5568c.97.6943 2.3981 1.6823 4.7692 1.6823 4.8231 0 9.215-3.8452 9.215-12.3099-.0269-7.7438-4.4728-11.9628-9.188-11.9628zm-1.6167 18.3981c-1.5897 0-2.5328-.5608-3.1795-1.255l-.0269-9.9067c.7006-.7744 1.6706-1.3084 3.2064-1.3084 2.4519 0 4.1494 2.7236 4.1494 6.2217 0 3.5781-1.6705 6.2484-4.1494 6.2484zm32.0382-6.1683c0-6.8359-3.3412-12.2298-9.727-12.2298-6.4128 0-10.2928 5.3939-10.2928 12.1764 0 8.0375 4.5806 12.0962 11.155 12.0962 3.2064 0 5.6314-.7209 7.4637-1.7356v-5.3405c-1.8323.9079-3.9339 1.4686-6.6014 1.4686-2.6137 0-4.9309-.9079-5.2273-4.0588h13.1759c0-.1463.0096-.4776.0206-.86l.0002-.006v-.0004-.0003-.0007l.0001-.0006v-.0004c.0151-.523.033-1.1393.033-1.5081zm-13.3106-2.5368c0-3.0174 1.8592-4.2724 3.5567-4.2724 1.6436 0 3.395 1.255 3.395 4.2724zm-31.1766-9.2399h-6.763v23.3648h6.763zm-14.4391.0026.4311 1.976c1.5897-2.8839 4.7422-2.2964 5.6045-1.976v6.1416c-.8353-.2937-3.5298-.6676-5.1195 1.3885v15.8347h-6.7361v-23.3648zm-13.0429-5.79554-6.5744 1.38853-.027 21.38881c0 3.9519 2.9909 6.8625 6.9787 6.8625 2.2094 0 3.8261-.4005 4.7153-.8812v-5.4206c-.8623.3472-5.1195 1.5755-5.1195-2.3765v-9.4794h5.1195v-5.6877h-5.1195zm-15.9238 11.13434c-1.42806 0-2.29029.4005-2.29029 1.4419 0 1.137 1.4839 1.6372 3.32489 2.2577 3.0011 1.0116 6.9512 2.3431 6.9679 7.2751 0 4.7798-3.8531 7.5302-9.45751 7.5302-2.31722 0-4.85-.454-7.35584-1.5221v-6.3552c2.26334 1.2283 5.11945 2.1362 7.35584 2.1362 1.50889 0 2.58671-.4005 2.58671-1.6289 0-1.2594-1.60861-1.8351-3.5506-2.5301-2.95752-1.0585-6.68833896-2.3937-6.68833896-6.8425 0-4.7263 3.63750896-7.5568 9.10723896-7.5568 2.2364 0 4.4458.3471 6.6822 1.2283v6.2751c-2.0478-1.0948-4.6344-1.7089-6.6822-1.7089z"
+              />
+            </svg>
+          </div>
+          <!-- HubSpot Logo -->
+          <div
+            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+          >
+            <svg
+              viewBox="0 0 106 31"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-full w-auto"
+            >
+              <path
+                d="M11.5651 5.62866V14.0394H3.8408V5.62866H0.173584V25.7058H3.8408V17.5682H11.5651V25.7058H15.2323V5.62866H11.5651Z"
+              />
+              <path
+                d="M26.9691 19.2163C26.9691 20.0209 26.6495 20.7926 26.0805 21.3616C25.5116 21.9305 24.7399 22.2502 23.9353 22.2502C23.1306 22.2502 22.359 21.9305 21.79 21.3616C21.221 20.7926 20.9014 20.0209 20.9014 19.2163V10.6169H17.4229V19.2163C17.4229 20.9418 18.1083 22.5967 19.3285 23.8168C20.5486 25.037 22.2034 25.7224 23.929 25.7224C25.6545 25.7224 27.3094 25.037 28.5295 23.8168C29.7496 22.5967 30.4351 20.9418 30.4351 19.2163V10.6169H26.9691V19.2163Z"
+              />
+              <path
+                d="M52.7417 11.5023C52.7417 9.73968 53.9078 9.18088 55.1853 9.18088C56.2148 9.18088 57.575 9.96428 58.4644 10.9148L60.7427 8.23039C59.6053 6.69235 57.2983 5.62866 55.4099 5.62866C51.6367 5.62866 48.9074 7.83869 48.9074 11.5023C48.9074 18.2995 57.2156 16.1434 57.2156 19.9472C57.2156 21.1204 56.0765 22.1572 54.772 22.1572C52.7147 22.1572 52.0481 21.151 51.103 20.0873L48.575 22.716C50.192 24.7014 52.1865 25.7094 54.5762 25.7094C58.1607 25.7094 61.0446 23.4724 61.0446 19.9759C61.0446 12.4295 52.7363 14.7742 52.7363 11.5023"
+              />
+              <path
+                d="M104.141 22.4985C102.085 22.4985 101.501 21.6091 101.501 20.2471V14.219H104.696V11.1644H101.501V7.13428L97.9741 8.71724V20.9964C97.9741 24.1372 100.141 25.7201 103.113 25.7201C103.579 25.7286 104.045 25.6913 104.504 25.6087L105.364 22.441C104.976 22.4679 104.531 22.4949 104.141 22.4949"
+              />
+              <path
+                d="M40.2095 10.7176C38.4864 10.7176 37.2844 11.2171 36.1219 12.358V5.74951H32.6379V17.9981C32.6379 22.5835 35.953 25.7242 39.6777 25.7242C43.8103 25.7242 47.4452 22.5278 47.4452 18.2227C47.4452 13.9715 44.0996 10.7194 40.2095 10.7194V10.7176ZM40.188 22.2187C39.4062 22.2187 38.6419 21.9869 37.9919 21.5526C37.3418 21.1182 36.8352 20.5008 36.536 19.7785C36.2368 19.0563 36.1585 18.2615 36.311 17.4947C36.4636 16.7279 36.84 16.0235 37.3929 15.4707C37.9457 14.9179 38.65 14.5414 39.4168 14.3889C40.1836 14.2364 40.9784 14.3146 41.7007 14.6138C42.423 14.913 43.0404 15.4197 43.4747 16.0697C43.9091 16.7198 44.1409 17.484 44.1409 18.2658C44.1409 19.3142 43.7244 20.3196 42.9831 21.061C42.2418 21.8023 41.2364 22.2187 40.188 22.2187Z"
+              />
+              <path
+                d="M78.0389 18.0389C78.0389 13.7266 74.4112 10.5374 70.2714 10.5374C66.5467 10.5374 63.2317 13.6781 63.2317 18.2635V30.5193H66.7156V23.9018C67.8763 25.0409 69.0802 25.5422 70.8015 25.5422C74.6915 25.5422 78.0371 22.2919 78.0371 18.0389H78.0389ZM74.74 17.9958C74.74 18.7776 74.5082 19.5418 74.0738 20.1919C73.6395 20.8419 73.0221 21.3486 72.2998 21.6478C71.5775 21.947 70.7827 22.0252 70.0159 21.8727C69.2492 21.7202 68.5448 21.3437 67.992 20.7909C67.4392 20.2381 67.0627 19.5337 66.9102 18.7669C66.7577 18.0001 66.8359 17.2054 67.1351 16.4831C67.4343 15.7608 67.941 15.1434 68.591 14.709C69.2411 14.2747 70.0053 14.0429 70.7871 14.0429C71.8355 14.0429 72.8409 14.4593 73.5822 15.2006C74.3236 15.942 74.74 16.9474 74.74 17.9958Z"
+              />
+            </svg>
+          </div>
+          <!-- Intercom Logo -->
+          <div
+            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+          >
+            <svg
+              fill="currentColor"
+              viewBox="0 0 175 48"
+              class="h-full w-auto"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m37.6816794 0h-32.06106871c-2.9509542 0-5.34351145 2.39255725-5.34351145 5.34351145v32.06106875c0 2.9509542 2.39255725 5.3435114 5.34351145 5.3435114h32.06106871c2.9509542 0 5.3435114-2.3925572 5.3435114-5.3435114v-32.06106875c0-2.9509542-2.3925572-5.34351145-5.3435114-5.34351145zm-10.3316794 7.83759542c0-.78683206.6385496-1.42538168 1.4253817-1.42538168.786832 0 1.4253817.63854962 1.4253817 1.42538168v19.03759538c0 .7868321-.6385497 1.4253817-1.4253817 1.4253817-.7868321 0-1.4253817-.6385496-1.4253817-1.4253817zm-7.1242366-.72137405c0-.78683206.6385496-1.42538168 1.4253816-1.42538168.7868321 0 1.4253817.63854962 1.4253817 1.42538168v20.66202293c0 .786832-.6385496 1.4253817-1.4253817 1.4253817-.786832 0-1.4253816-.6385497-1.4253816-1.4253817zm-7.1242367.72137405c0-.78683206.6385496-1.42538168 1.4253817-1.42538168s1.4240458.63854962 1.4240458 1.42538168v19.03759538c0 .7868321-.6372137 1.4253817-1.4240458 1.4253817s-1.4253817-.6385496-1.4253817-1.4253817zm-7.12423662 2.84942748c0-.78683206.63721374-1.42538168 1.4240458-1.42538168s1.42538168.63854962 1.42538168 1.42538168v12.8164122c0 .7868321-.63854962 1.4253817-1.42538168 1.4253817s-1.4240458-.6385496-1.4240458-1.4253817zm30.85076332 21.7347328c-.2190839.1896947-5.4984732 4.6181298-15.1769084 4.6181298-9.6784351 0-14.95515263-4.4284351-15.17690836-4.6181298-.5971374-.5116412-.66793893-1.410687-.15496183-2.0091603.51030534-.5958015 1.40801527-.666603 2.00515267-.1562977.08282443.0694657 4.79713742 3.9341603 13.32538172 3.9341603 8.6351145 0 13.2759542-3.8927481 13.321374-3.9314885.5958015-.5129771 1.4975191-.4435115 2.0078244.1536259.5156489.5984733.4461832 1.4975191-.1509542 2.0091603zm.4969466-8.9183206c0 .7868321-.6385496 1.4253817-1.4253817 1.4253817-.786832 0-1.4240458-.6385496-1.4240458-1.4253817v-12.8164122c0-.78683206.6372138-1.42538168 1.4240458-1.42538168.7868321 0 1.4253817.63854962 1.4253817 1.42538168z"
+                transform="translate(1 3)"
+              />
+              <rect x="58.442748" y="16.358779" width="8" height="16" rx="2" />
+              <text x="90" y="28" fontSize="14" fontWeight="500">INTERCOM</text>
+            </svg>
+          </div>
+          <!-- Asana Logo -->
+          <div
+            class="flex items-center justify-center h-8 opacity-50 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+          >
+            <svg
+              viewBox="0 0 175 48"
+              class="h-full w-auto"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+            >
+              <circle cx="12" cy="12" r="8" />
+              <circle cx="28" cy="12" r="8" />
+              <circle cx="20" cy="26" r="8" />
+              <text x="44" y="22" fontSize="18" fontWeight="500">asana</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section Header -->
+    <div
+      class="max-w-4xl mx-auto flex flex-col items-center justify-center mt-24"
+    >
+      <span
+        class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
+        >TWO-COL FEATURES</span
+      >
+      <h2
+        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-4 text-center"
+      >
+        Supercharge Your Workflows
+      </h2>
+      <p class="text-lg mt-4 text-slate-600 text-center text-wrap-pretty">
+        Unlock your team's true potential with our state-of-the-art SaaS
+        platform. From intelligent task management to real-time collaboration
+        and top-notch data security, we have everything you need to streamline
+        your workflows and achieve high productivity.
+      </p>
+    </div>
+
+    <!-- Feature 1 - Image Left, Content Right -->
+    <div
+      class="grid md:grid-cols-2 py-10 max-w-screen-xl mx-auto px-5 gap-8 lg:gap-12"
+    >
+      <div class="grid place-items-center relative">
+        <div
+          class="absolute inset-0 bg-gradient-to-tr from-indigo-200/20 to-purple-200/20 blur-3xl -z-10 rounded-2xl"
+        ></div>
+        <picture>
+          <img
+            src="https://astroship-pro.web3templates.com/_astro/6.SnSOjqTF_Z2kOY0y.avif"
+            alt="Feature Dashboard"
+            loading="lazy"
+            width="730"
+            height="584"
+            decoding="async"
+            class="rounded-2xl shadow-none bg-transparent relative z-10 w-full max-w-lg"
+          />
+        </picture>
+      </div>
+      <div class="grid place-items-start md:place-items-center">
+        <div class="max-w-lg">
+          <span
+            class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
+            >Simplified Workflows</span
+          >
+          <h3 class="text-2xl font-medium mt-4 text-wrap-balance">
             Experience the Ultimate Boost in Productivity with Our Intuitive
             Platform
-          </h2>
-          <p class="text-muted fs-6">
+          </h3>
+          <p class="mt-4 text-slate-600 text-wrap-balance">
             Streamline your tasks and collaborate seamlessly with our
             cutting-edge SaaS startup platform. Unlock the potential of your
             team and take productivity to new heights.
           </p>
-          <ul class="list-unstyled mb-4 lh-5">
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i
-              >Intelligent Task Management
+          <ul class="grid mt-6 text-left gap-y-4">
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Intelligent Task Management</span>
             </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time
-              Collaboration
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Real-time Collaboration</span>
             </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>Data
-              Security & Privacy
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Data Security & Privacy</span>
             </li>
           </ul>
-          <a href="#" class="btn btn-primary rounded-pill me-2"
-            >Start 14-day trial</a
-          >
-          <a href="#" class="btn btn-noline-secondary hover-text"
-            >Contact Sales</a
-          >
-        </div>
-      </div>
-    </section>
-    <section class="container py-5">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <span
-              class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-              >AI-Powered Insights</span
+          <div class="flex items-center gap-4 mt-6">
+            <a
+              href="#"
+              class="rounded-full text-center transition px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px"
+              ><span>Start 14-day trial</span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-4 h-4 mt-px group-hover:translate-x-1 transition-transform"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                /></svg
+            ></a>
+            <a
+              href="#"
+              class="text-sm px-2 transition py-1 text-slate-600 hover:text-indigo-600"
+              >Contact Sales</a
             >
           </div>
-          <h2 class="fw-normal fs-4">
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2 - Content Left, Image Right -->
+    <div
+      class="grid md:grid-cols-2 py-10 max-w-screen-xl mx-auto px-5 gap-8 lg:gap-12"
+    >
+      <div
+        class="grid place-items-start md:place-items-center order-2 md:order-1"
+      >
+        <div class="max-w-lg">
+          <span
+            class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
+            >AI-Powered Insights</span
+          >
+          <h3 class="text-2xl font-medium mt-4 text-wrap-balance">
             Supercharge Your Marketing Strategy with Advanced Analytics
-          </h2>
-          <p class="text-muted fs-5">
+          </h3>
+          <p class="mt-4 text-slate-600 text-wrap-balance">
             Harness the potential of AI-driven marketing analytics to optimize
             your campaigns, understand your audience better, and achieve
             unprecedented growth.
           </p>
-          <ul class="list-unstyled mb-4 lh-5">
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>Smart
-              Audience Segmentation
+          <ul class="grid mt-6 text-left gap-y-4">
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Smart Audience Segmentation</span>
             </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i
-              >Predictive Campaign Performance
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Predictive Campaign Performance</span>
             </li>
-            <li>
-              <i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time
-              Data Visualization
+            <li class="flex items-center gap-3 text-neutral-800">
+              <svg
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+                class="w-5 h-5 text-indigo-600 flex-shrink-0"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"
+                /></svg
+              ><span class="text-sm">Real-time Data Visualization</span>
             </li>
           </ul>
-          <a href="#" class="btn btn-primary rounded-pill me-2 hover-arrow"
-            >Start 14-day trial</a
-          >
-          <a href="#" class="btn btn-noline-secondary hover-text"
-            >Contact Sales</a
-          >
-        </div>
-        <div class="col-md-6 text-center py-5">
-          <img
-            src="/img/2.CV1PrsFe_ZDeQkF.avif"
-            class="img-fluid"
-            alt="Website illustration"
-          />
-        </div>
-      </div>
-    </section>
-    <section class="py-5 bg-light">
-      <div class="container">
-        <h2 class="fw-bold text-center mb-2 fs-1">
-          Client <span class="text-indigo">Testimonials</span>
-        </h2>
-        <p class="text-muted text-center mb-5">
-          Astroship is trusted by the world's leading companies and brands.
-        </p>
-
-        <!-- Desktop: Auto-scroll marquee -->
-        <div class="marquee-container fade-gradient d-none d-md-block">
-          <div class="marquee-content">
-            <!-- Testimonial cards (duplicate for infinite scroll) -->
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
+          <div class="flex items-center gap-4 mt-6">
+            <a
+              href="#"
+              class="rounded-full text-center transition px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px"
+              ><span>Start 14-day trial</span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-4 h-4 mt-px group-hover:translate-x-1 transition-transform"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                /></svg
+            ></a>
+            <a
+              href="#"
+              class="text-sm px-2 transition py-1 text-slate-600 hover:text-indigo-600"
+              >Contact Sales</a
             >
-              <div class="card-body">
-                <p class="card-text">
-                  "Astroship has transformed the way we manage our projects. Its
-                  well-designed interface and powerful features make it a
-                  must-have tool for any startup."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">John Doe</h6>
-                  <small class="text-muted">CEO at TechCorp</small>
-                </div>
-              </div>
-            </div>
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
-            >
-              <div class="card-body">
-                <p class="card-text">
-                  "As a marketing professional, I love using Astroship to
-                  streamline our campaigns. The automation features and
-                  analytics help us make data-driven decisions."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">Jane Smith</h6>
-                  <small class="text-muted"
-                    >Marketing Manager at InnovateTech</small
-                  >
-                </div>
-              </div>
-            </div>
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
-            >
-              <div class="card-body">
-                <p class="card-text">
-                  "Astroship has revolutionized our customer support. The
-                  ticketing system and knowledge base reduced response times,
-                  leading to happier customers."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">Mike Johnson</h6>
-                  <small class="text-muted">CTO at CloudNine</small>
-                </div>
-              </div>
-            </div>
-            <!-- Duplicate for seamless loop -->
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
-            >
-              <div class="card-body">
-                <p class="card-text">
-                  "Astroship has transformed the way we manage our projects. Its
-                  well-designed interface and powerful features make it a
-                  must-have tool for any startup."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">John Doe</h6>
-                  <small class="text-muted">CEO at TechCorp</small>
-                </div>
-              </div>
-            </div>
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
-            >
-              <div class="card-body">
-                <p class="card-text">
-                  "As a marketing professional, I love using Astroship to
-                  streamline our campaigns. The automation features and
-                  analytics help us make data-driven decisions."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">Jane Smith</h6>
-                  <small class="text-muted"
-                    >Marketing Manager at InnovateTech</small
-                  >
-                </div>
-              </div>
-            </div>
-            <div
-              class="card h-100 shadow-sm border-0"
-              style="min-width: 350px; max-width: 350px"
-            >
-              <div class="card-body">
-                <p class="card-text">
-                  "Astroship has revolutionized our customer support. The
-                  ticketing system and knowledge base reduced response times,
-                  leading to happier customers."
-                </p>
-                <div class="mt-3">
-                  <h6 class="fw-bold mb-0">Mike Johnson</h6>
-                  <small class="text-muted">CTO at CloudNine</small>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-
-        <!-- Mobile: Horizontal scroll -->
+      </div>
+      <div class="grid place-items-center relative order-1 md:order-2">
         <div
-          class="d-md-none overflow-auto"
-          style="scrollbar-width: none; -ms-overflow-style: none"
+          class="absolute inset-0 bg-gradient-to-tr from-purple-200/20 to-indigo-200/20 blur-3xl -z-10 rounded-2xl"
+        ></div>
+        <picture>
+          <img
+            src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
+            alt="Analytics Dashboard"
+            loading="lazy"
+            width="1280"
+            height="800"
+            decoding="async"
+            class="rounded-2xl shadow-none bg-transparent relative z-10 w-full max-w-lg"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <!-- Client Testimonials Section -->
+    <div class="w-full px-5 py-6 mt-16 mb-8">
+      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-center">
+        Client <span class="text-indigo-600">Testimonials</span>
+      </h2>
+      <p class="text-lg mt-4 text-slate-600 text-center max-w-2xl mx-auto">
+        Astroship is trusted by the world's leading companies and brands.
+      </p>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div class="w-full relative overflow-hidden fade-gradient mb-24">
+      <div
+        class="absolute w-[600px] h-[600px] blur-3xl -z-10 bg-gradient-radial from-indigo-200/60 via-indigo-100/40 to-transparent right-1/3 -top-20"
+      ></div>
+      <div
+        class="absolute w-[500px] h-[500px] blur-3xl -z-10 bg-gradient-radial from-purple-200/50 via-purple-100/30 to-transparent right-1/3 translate-x-1/4 top-20"
+      ></div>
+      <div
+        class="absolute w-[400px] h-[400px] blur-2xl -z-10 bg-gradient-radial from-blue-200/40 via-blue-100/20 to-transparent left-1/4 bottom-0"
+      ></div>
+      <div class="hidden md:block relative">
+        <div
+          class="flex gap-6 animate-marquee-testimonial px-5"
+          id="marqueeContent"
+        ></div>
+      </div>
+      <div
+        class="md:hidden custom-scroll scrollbar-hide flex gap-6 py-5 px-5"
+        id="mobileScroll"
+      ></div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-screen-xl mx-auto px-5 py-6">
+      <div class="mt-6">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          Everything you need to
+          <span class="text-indigo-600">start a website</span>
+        </h2>
+        <p class="text-lg mt-4 text-slate-600">
+          Astro comes batteries included. It takes the best parts of
+          state-of-the-art tools and adds its own innovations.
+        </p>
+      </div>
+
+      <!-- First Row - 2 Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 mt-16 gap-10">
+        <div
+          class="rounded-2xl p-8 bg-gray-50 transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg lg:col-span-3"
         >
-          <div class="d-flex gap-3 pb-3">
-            <div class="card shadow-sm border-0" style="min-width: 280px">
-              <div class="card-body">
-                <p class="card-text small">
-                  "Astroship has transformed the way we manage our projects..."
-                </p>
-                <div class="mt-2">
-                  <h6 class="fw-bold mb-0 small">John Doe</h6>
-                  <small class="text-muted">CEO at TechCorp</small>
-                </div>
-              </div>
-            </div>
-            <div class="card shadow-sm border-0" style="min-width: 280px">
-              <div class="card-body">
-                <p class="card-text small">
-                  "As a marketing professional, I love using Astroship..."
-                </p>
-                <div class="mt-2">
-                  <h6 class="fw-bold mb-0 small">Jane Smith</h6>
-                  <small class="text-muted">Marketing Manager</small>
-                </div>
-              </div>
-            </div>
-            <div class="card shadow-sm border-0" style="min-width: 280px">
-              <div class="card-body">
-                <p class="card-text small">
-                  "Astroship has revolutionized our customer support..."
-                </p>
-                <div class="mt-2">
-                  <h6 class="fw-bold mb-0 small">Mike Johnson</h6>
-                  <small class="text-muted">CTO at CloudNine</small>
-                </div>
-              </div>
-            </div>
+          <div
+            class="overflow-hidden flex items-start justify-center h-auto relative lg:h-80"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent z-10"
+            ></div>
+            <img
+              src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
+              alt="Feature image"
+              loading="lazy"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div class="mt-2">
+            <span
+              class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
+              >Astroship</span
+            >
+            <h3 class="text-xl lg:text-2xl font-medium mt-2">
+              Responsive Template
+            </h3>
+            <p class="text-slate-600 mt-2 text-balance">
+              Astroship is a creative and modern mobile responsive website
+              template that helps you create any kind of marketing websites or
+              landing pages.
+            </p>
+          </div>
+        </div>
+        <div
+          class="rounded-2xl p-8 bg-gray-50 transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg lg:col-span-2"
+        >
+          <div
+            class="overflow-hidden flex items-start justify-center h-auto relative lg:h-80"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent z-10"
+            ></div>
+            <img
+              src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
+              alt="Feature image"
+              loading="lazy"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div class="mt-2">
+            <span
+              class="bg-indigo-100 border-indigo-200 border text-indigo-600 rounded-full text-xs font-medium px-3 py-1"
+              >Creative</span
+            >
+            <h3 class="text-xl lg:text-2xl font-medium mt-2">
+              Next Level Template
+            </h3>
+            <p class="text-slate-600 mt-2 text-balance">
+              Astroship is a new kind of website template that integrates your
+              favorite tools and workflows.
+            </p>
           </div>
         </div>
       </div>
-    </section>
-    <section class="container py-4">
-      <div class="row g-4">
-        <!-- Card 1 - spans 3 cols on large -->
-        <div class="col-lg-8">
-          <div class="card feature-card h-100 bg-slate-50 border-0">
-            <div class="position-relative" style="height: 200px">
-              <div
-                class="position-absolute bottom-0 start-0 w-100 h-50 bg-gradient-to-t"
-                style="
-                  background: linear-gradient(to top, #f8fafc, transparent);
-                "
-              ></div>
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
-                class="card-img-top h-100 object-fit-contain p-3"
-                alt="Feature"
-              />
-            </div>
-            <div class="card-body">
-              <span
-                class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-                >Astroship</span
-              >
-              <h3 class="card-title h5 mt-2">Responsive Template</h3>
-              <p class="card-text text-slate-600">
-                Astroship is a creative and modern mobile responsive website
-                template that helps you create any kind of marketing websites or
-                landing pages.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 - spans 2 cols on large -->
-        <div class="col-lg-4">
-          <div class="card feature-card h-100 bg-slate-50 border-0">
-            <div class="position-relative" style="height: 200px">
-              <div
-                class="position-absolute bottom-0 start-0 w-100 h-50 bg-gradient-to-t"
-                style="
-                  background: linear-gradient(to top, #f8fafc, transparent);
-                "
-              ></div>
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
-                class="card-img-top h-100 object-fit-contain p-3"
-                alt="Feature"
-              />
-            </div>
-            <div class="card-body">
-              <span
-                class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-                >Creative</span
-              >
-              <h3 class="card-title h5 mt-2">Next Level Template</h3>
-              <p class="card-text text-slate-600">
-                Astroship is a new kind of website template that integrates your
-                favorite tools and workflows.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Feature Row 2: 3 cards -->
-    <section class="container py-4">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card feature-card h-100 bg-slate-50 border-0">
-            <div class="position-relative" style="height: 150px">
-              <div
-                class="position-absolute bottom-0 start-0 w-100 h-50 bg-gradient-to-t"
-                style="
-                  background: linear-gradient(to top, #f8fafc, transparent);
-                "
-              ></div>
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/3.BeIuxAWP_2dXMaQ.avif"
-                class="card-img-top h-100 object-fit-contain p-3"
-                alt="Feature"
-              />
-            </div>
-            <div class="card-body">
-              <span
-                class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-                >Template</span
-              >
-              <h3 class="card-title h5 mt-2">Modern Design</h3>
-              <p class="card-text text-slate-600 small">
-                Feeling old? Try this template and be a part of the modern
-                design.
-              </p>
-            </div>
+      <!-- Second Row - 3 Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10">
+        <div
+          class="rounded-2xl p-8 bg-gray-50 transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg"
+        >
+          <div
+            class="overflow-hidden flex items-start justify-center h-auto relative lg:h-60"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent z-10"
+            ></div>
+            <img
+              src="https://astroship-pro.web3templates.com/_astro/3.BeIuxAWP_2dXMaQ.avif"
+              alt="Feature image"
+              loading="lazy"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div class="mt-2">
+            <span
+              class="bg-indigo-100 border-indigo-200 border text-indigo-600 rounded-full text-xs font-medium px-3 py-1"
+              >Template</span
+            >
+            <h3 class="text-xl lg:text-2xl font-medium mt-2">Modern Design</h3>
+            <p class="text-slate-600 mt-2 text-balance">
+              Feeling old? Try this template and be a part of the modern design.
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card feature-card h-100 bg-slate-50 border-0">
-            <div class="position-relative" style="height: 150px">
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
-                class="card-img-top h-100 object-fit-contain p-3"
-                alt="Feature"
-              />
-            </div>
-            <div class="card-body">
-              <span
-                class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
-                >Product</span
-              >
-              <h3 class="card-title h5 mt-2">Highlight Features</h3>
-              <p class="card-text text-slate-600 small">
-                You can highlight your features in a trendy grid like this one.
-              </p>
-            </div>
+        <div
+          class="rounded-2xl p-8 bg-gray-50 transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg"
+        >
+          <div
+            class="overflow-hidden flex items-start justify-center h-auto relative lg:h-60"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent z-10"
+            ></div>
+            <img
+              src="https://astroship-pro.web3templates.com/_astro/2.CV1PrsFe_ZDeQkF.avif"
+              alt="Feature image"
+              loading="lazy"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div class="mt-2">
+            <span
+              class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
+              >Product</span
+            >
+            <h3 class="text-xl lg:text-2xl font-medium mt-2">
+              Highlight Features
+            </h3>
+            <p class="text-slate-600 mt-2 text-balance">
+              You can highlight your features in a trendy grid like this one.
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card feature-card h-100 bg-slate-50 border-0">
-            <div class="position-relative" style="height: 150px">
-              <img
-                src="https://astroship-pro.web3templates.com/_astro/integrations.eF8c4xAE.svg"
-                class="card-img-top h-100 object-fit-contain p-3"
-                alt="Integrations"
-              />
-            </div>
-            <div class="card-body">
-              <span class="badge-pill-custom bg-light border text-dark"
-                >Webhooks</span
-              >
-              <h3 class="card-title h5 mt-2">100+ Integrations</h3>
-              <p class="card-text text-slate-600 small">
-                Astroship can be integrated with hundreds of tools using Zapier.
-              </p>
-            </div>
+        <div
+          class="rounded-2xl p-8 bg-gray-50 transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg"
+        >
+          <div
+            class="overflow-hidden flex items-start justify-center h-auto relative lg:h-60"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent z-10"
+            ></div>
+            <img
+              src="https://astroship-pro.web3templates.com/_astro/integrations.eF8c4xAE.svg"
+              alt="Integrations"
+              loading="lazy"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div class="mt-2">
+            <span
+              class="bg-gray-100 border-gray-200 border text-gray-800 rounded-full text-xs font-medium px-3 py-1"
+              >Webhooks</span
+            >
+            <h3 class="text-xl lg:text-2xl font-medium mt-2">
+              100+ Integrations
+            </h3>
+            <p class="text-slate-600 mt-2 text-balance">
+              Astroship can be integrated with hundreds of tools using Zapier.
+            </p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- More Features Section -->
-    <section class="container py-5 mt-4">
-      <div class="text-center mb-5">
+      <!-- More Features Section -->
+      <div
+        class="mt-24 max-w-3xl mx-auto flex flex-col items-center justify-center"
+      >
         <span
-          class="badge-pill-custom bg-indigo-light border border-indigo-light text-indigo"
+          class="bg-purple-100 border-purple-200 border text-purple-600 rounded-full text-xs font-medium px-3 py-1"
           >MORE FEATURES</span
         >
-        <h2 class="fw-bold display-6 mt-3">We've got you covered</h2>
-        <p class="text-muted">
+        <h2
+          class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-4 text-center"
+        >
+          We've got you covered
+        </h2>
+        <p class="text-lg mt-4 text-slate-600 text-center text-pretty">
           Our template covers all things SAAS. If you don't find what you're
-          looking for, contact us.
+          looking for, contact us and we'll either help you or steer you in the
+          right direction.
         </p>
       </div>
 
-      <div class="row g-4">
+      <!-- Feature Grid -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-8 md:gap-16">
         <!-- Feature 1 -->
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-code-square text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">Bring Your Own Framework</h5>
-              <p class="text-muted small mb-0">
-                Build your site using React, Svelte, Vue, Preact, or plain HTML
-                + JavaScript.
-              </p>
-            </div>
+              <path
+                d="M18 20.5h-7.034a2.939 2.939 0 0 1-.702 1.5H18a2 2 0 0 0 2-2V9.828a2 2 0 0 0-.586-1.414l-5.829-5.828a.491.491 0 0 0-.049-.04a.63.63 0 0 1-.036-.03a2.072 2.072 0 0 0-.219-.18a.652.652 0 0 0-.08-.044l-.048-.024l-.05-.029c-.054-.031-.109-.063-.166-.087a1.977 1.977 0 0 0-.624-.138a.56.56 0 0 1-.059-.007a.605.605 0 0 0-.082-.007H6a2 2 0 0 0-2 2v10.018a1.745 1.745 0 0 1 1.5.508V4a.5.5 0 0 1 .5-.5h6V8a2 2 0 0 0 2 2h4.5v10a.5.5 0 0 1-.5.5m-.622-12H14a.5.5 0 0 1-.5-.5V4.621zM4.25 15a.75.75 0 0 1 .75.75V20a2 2 0 1 1-4 0v-.25a.75.75 0 0 1 1.5 0V20a.5.5 0 0 0 1 0v-4.25a.75.75 0 0 1 .75-.75m3.7 0A1.95 1.95 0 0 0 6 16.95v.234c0 .614.323 1.184.85 1.5l1.529.918a.25.25 0 0 1 .121.214v.234a.45.45 0 0 1-.45.45h-.1a.45.45 0 0 1-.45-.45V20A.75.75 0 0 0 6 20v.05A1.95 1.95 0 0 0 7.95 22h.1A1.95 1.95 0 0 0 10 20.05v-.234a1.75 1.75 0 0 0-.85-1.5l-1.529-.918a.25.25 0 0 1-.121-.214v-.234a.45.45 0 0 1 .45-.45h.1a.45.45 0 0 1 .45.45V17a.75.75 0 0 0 1.5 0v-.05A1.95 1.95 0 0 0 8.05 15z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Bring Your Own Framework</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Build your site using React, Svelte, Vue, Preact, web components,
+              or just plain ol' HTML + JavaScript.
+            </p>
           </div>
         </div>
         <!-- Feature 2 -->
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-lightning-charge text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">100% Static HTML, No JS</h5>
-              <p class="text-muted small mb-0">
-                Astro renders your entire page to static HTML, removing
-                JavaScript by default.
-              </p>
-            </div>
+              <path
+                d="M15.254 2a2.25 2.25 0 0 1 2.236 2h1.268a1.75 1.75 0 0 1 1.744 1.606l.006.144v3a3.25 3.25 0 0 1-3.066 3.245l-.21.006a5.758 5.758 0 0 1-4.731 3.95V17.5h1.753a3.25 3.25 0 0 1 3.244 3.066l.006.184v.5a.75.75 0 0 1-.649.743l-.101.007H6.75a.75.75 0 0 1-.744-.648L6 21.25v-.5a3.25 3.25 0 0 1 3.065-3.245l.185-.005H11v-1.549a5.758 5.758 0 0 1-4.729-3.95L6.246 12a3.25 3.25 0 0 1-3.25-3.25v-3c0-.966.784-1.75 1.75-1.75h1.268a2.25 2.25 0 0 1 2.237-2zm-1 17H9.25a1.75 1.75 0 0 0-1.705 1.352l-.028.148h8.468a1.75 1.75 0 0 0-1.578-1.493zm1-15.5H8.25a.75.75 0 0 0-.75.75v5.999a4.252 4.252 0 0 0 8.503 0V4.25a.75.75 0 0 0-.75-.75m3.504 2h-1.254v4.983A1.75 1.75 0 0 0 19 8.904l.007-.154v-3a.25.25 0 0 0-.193-.243zM6 5.5H4.746a.25.25 0 0 0-.25.25v3a1.75 1.75 0 0 0 1.505 1.733z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Astro renders your entire page to static HTML, removing all
+              JavaScript from your final build by default.
+            </p>
           </div>
         </div>
         <!-- Feature 3 -->
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-boxes text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">On-Demand Components</h5>
-              <p class="text-muted small mb-0">
-                Need JS? Astro can hydrate interactive components when they
-                become visible.
-              </p>
-            </div>
+              <path
+                d="M10.591 2.513a3.75 3.75 0 0 1 2.818 0l7.498 3.04A1.75 1.75 0 0 1 22 7.175v9.653a1.75 1.75 0 0 1-1.093 1.621l-7.498 3.04a3.75 3.75 0 0 1-2.818 0l-7.498-3.04A1.75 1.75 0 0 1 2 16.827V7.176a1.75 1.75 0 0 1 1.093-1.622zm2.254 1.39a2.25 2.25 0 0 0-1.69 0L9.24 4.68l7.527 2.927l2.669-1.03zm1.846 4.505L7.215 5.5L4.59 6.564l7.411 2.882zM3.5 16.828a.25.25 0 0 0 .156.231l7.499 3.04c.031.013.063.025.095.036v-9.371L3.5 7.75zm9.345 3.271l7.499-3.04a.25.25 0 0 0 .156-.232V7.774l-7.75 2.992v9.37a2.18 2.18 0 0 0 .095-.036"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">On-Demand Components</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Need some JS? Astro can automatically hydrate interactive
+              components when they become visible on the page.
+            </p>
           </div>
         </div>
-        <!-- Feature 4-6 (tương tự) -->
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <!-- Feature 4 -->
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-plug text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">Broad Integration</h5>
-              <p class="text-muted small mb-0">
-                Supports TypeScript, Tailwind, Sass, Markdown, MDX, and npm
-                packages.
-              </p>
-            </div>
+              <path
+                d="M15.78 3.737a2.25 2.25 0 0 0-1.56 0L9.913 5.33a.25.25 0 0 0-.163.234v2.793a4.75 4.75 0 0 0-1.5 0V5.563a1.75 1.75 0 0 1 1.143-1.641L13.7 2.33a3.75 3.75 0 0 1 2.6 0l4.307 1.592a1.75 1.75 0 0 1 1.143 1.641v10.67a1.75 1.75 0 0 1-1.143 1.642l-4.018 1.484c.105-.292.161-.604.161-.927v-.731l3.337-1.233a.25.25 0 0 0 .163-.235V5.563a.25.25 0 0 0-.163-.234zm-4.01 3.93a.75.75 0 1 1 .49-1.418l2.658.92a.25.25 0 0 0 .163 0l2.65-.92a.75.75 0 1 1 .492 1.418l-2.65.919a1.75 1.75 0 0 1-1.145 0zm-6 7a.75.75 0 0 1 .49-1.418l2.74.948l2.732-.947a.75.75 0 1 1 .49 1.417l-2.472.857v2.7a.75.75 0 0 1-1.5 0v-2.7zM10.3 9.53a3.75 3.75 0 0 0-2.6 0l-4.307 1.592a1.75 1.75 0 0 0-1.143 1.641v5.67a1.75 1.75 0 0 0 1.143 1.642L7.7 21.666a3.75 3.75 0 0 0 2.6 0l4.307-1.592a1.75 1.75 0 0 0 1.143-1.641zm-2.08 1.407a2.25 2.25 0 0 1 1.56 0l4.307 1.592a.25.25 0 0 1 .163.234v5.67a.25.25 0 0 1-.163.235L9.78 20.259a2.25 2.25 0 0 1-1.56 0l-4.307-1.592a.25.25 0 0 1-.163-.234v-5.67a.25.25 0 0 1 .163-.234z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Broad Integration</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Astro supports TypeScript, Scoped CSS, CSS Modules, Sass,
+              Tailwind, Markdown, MDX, and any other npm packages.
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <!-- Feature 5 -->
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-search text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">SEO Enabled</h5>
-              <p class="text-muted small mb-0">
-                Automatic sitemaps, RSS feeds, pagination - SEO just works!
-              </p>
-            </div>
+              <path
+                d="M14.819 11.795a3.724 3.724 0 1 0-1.024 1.024l2.476 2.475l.067.058l.008.006a.724.724 0 0 0 .942-1.093zm-3.095-4.348a2.276 2.276 0 1 1 0 4.553a2.276 2.276 0 0 1 0-4.553M6.5 2A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h13.25a.75.75 0 0 0 0-1.5H6.5a1 1 0 0 1-1-1h14.25a.75.75 0 0 0 .75-.75V4.5A2.5 2.5 0 0 0 18 2zM19 18H5.5V4.5a1 1 0 0 1 1-1H18a1 1 0 0 1 1 1z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">SEO Enabled</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Automatic sitemaps, RSS feeds, pagination and collections take the
+              pain out of SEO and syndication. It just works!
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="d-flex gap-3 feature-card p-4 rounded-3">
-            <div
-              class="bg-indigo-light border border-indigo-light rounded d-flex align-items-center justify-content-center"
-              style="width: 40px; height: 40px; min-width: 40px"
+        <!-- Feature 6 -->
+        <div
+          class="flex flex-col gap-4 items-start group hover:bg-slate-50 hover:border-slate-100 border border-transparent rounded-lg transition-all md:-m-5 p-5"
+        >
+          <div
+            class="mt-1 bg-indigo-50 border shadow shadow-indigo-100/50 border-indigo-100 transition-colors rounded-lg grid place-items-center p-2 w-10 h-10 shrink-0"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="text-indigo-500"
+              fill="currentColor"
             >
-              <i class="bi bi-people text-indigo"></i>
-            </div>
-            <div>
-              <h5 class="fw-semibold">Community</h5>
-              <p class="text-muted small mb-0">
-                Open source project powered by hundreds of contributors
-                worldwide.
-              </p>
-            </div>
+              <path
+                d="M7.5 3.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M4.5 5a3 3 0 1 1 6 0a3 3 0 0 1-6 0m-.732 4C2.79 9 2 9.791 2 10.768v.36c0 .207 0 1.408.7 2.575c.548.91 1.477 1.727 2.975 2.093a2.777 2.777 0 0 1 1.062-1.335c-1.603-.171-2.361-.883-2.75-1.53c-.484-.806-.487-1.664-.487-1.806v-.357c0-.148.12-.268.268-.268H8.03A3.974 3.974 0 0 1 8.535 9zm11.697 0c.261.452.437.959.504 1.5h4.263c.148 0 .268.12.268.268v.357c0 .142-.003 1-.487 1.805c-.389.648-1.147 1.36-2.75 1.531c.48.32.856.786 1.062 1.335c1.498-.366 2.427-1.183 2.974-2.093c.701-1.167.701-2.367.701-2.576v-.36C22 9.792 21.209 9 20.232 9zM15 5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0m1.5-3a3 3 0 1 0 0 6a3 3 0 0 0 0-6M12 9.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M9 11a3 3 0 1 1 6 0a3 3 0 0 1-6 0m-2.5 5.768C6.5 15.79 7.291 15 8.268 15h7.464c.977 0 1.768.791 1.768 1.768v.36c0 .207 0 1.408-.7 2.575C16.057 20.937 14.613 22 12 22s-4.058-1.063-4.8-2.297c-.7-1.167-.7-2.367-.7-2.576zm1.768-.268a.268.268 0 0 0-.268.268v.357c0 .142.003 1 .487 1.805c.446.743 1.377 1.57 3.513 1.57s3.067-.827 3.513-1.57c.484-.805.487-1.663.487-1.805v-.357a.268.268 0 0 0-.268-.268z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Community</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">
+              Astro is an open source project powered by hundreds of
+              contributors making thousands of individual contributions.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- ========== CTA SECTION (từ Code 2) ========== -->
-    <section class="gradient-indigo py-5 my-5">
-      <div class="container text-center text-white">
-        <h2 class="display-5 fw-bold">Build faster websites.</h2>
-        <p class="lead opacity-75 mt-3">
-          Pull content from anywhere and serve it fast with Astro's next-gen
-          island architecture.
-        </p>
+    <!-- CTA Section -->
+    <div
+      class="bg-gradient-to-bl from-indigo-900 to-indigo-700 p-8 md:px-20 md:py-20 mt-20 flex flex-col items-center text-center"
+    >
+      <h2 class="text-white text-4xl md:text-6xl tracking-tight font-bold">
+        Build faster websites.
+      </h2>
+      <p class="text-white/70 mt-4 text-lg md:text-xl whitespace-nowrap">
+        Pull content from anywhere and serve it fast with Astro's next-gen
+        island architecture.
+      </p>
+      <div class="flex mt-8">
         <a
           href="#"
-          class="btn btn-light btn-lg rounded-pill px-5 mt-4 fw-medium text-indigo"
+          class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none px-8 py-3 bg-white text-indigo-800 border-2 border-transparent font-medium hover:shadow-lg"
+          >Sign up for a 14-day Trial</a
         >
-          Sign up for a 14-day Trial
-        </a>
       </div>
-    </section>
+    </div>
 
-    <!-- ========== FOOTER (từ Code 2, chuyển sang Bootstrap) ========== -->
-    <footer class="bg-slate-100 border-t border-slate-200 py-12">
+    <!-- Footer Section -->
+    <footer class="py-14 bg-slate-100 border-t border-slate-100">
       <div class="max-w-screen-xl mx-auto px-5">
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           <div class="sm:col-span-2 md:col-span-3 lg:col-span-2">
-            <a href="/" class="flex items-center gap-1 font-bold text-lg">
-              <span class="text-indigo-600">Astroship</span>
-              <span
-                class="text-xs font-bold bg-slate-200 text-slate-700 px-2 py-0.5 rounded uppercase"
+            <a href="/" class="text-lg flex items-center"
+              ><span class="font-bold text-indigo-600">Astro</span
+              ><span class="text-slate-600">ship</span
+              ><span
+                class="uppercase mt-0.5 leading-none text-[10px] ml-1 font-bold bg-gray-200 text-slate-700 px-2 py-1 rounded-md"
                 >PRO</span
-              >
-            </a>
-            <p class="mt-4 text-sm text-slate-600 max-w-xs">
+              ></a
+            >
+            <p class="mt-4 text-sm text-slate-700 max-w-xs">
               Astroship Pro is a premium astro website template made for saas &
               startups. Built with Astro and Tailwind CSS.
             </p>
-            <div class="flex gap-3 mt-4">
+            <div class="flex gap-3 mt-4 items-center">
               <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
+                href="https://twitter.com/surjithctly"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-200 hover:bg-slate-300 rounded w-6 h-6 inline-flex items-center justify-center text-slate-500"
+                ><svg
+                  width="1em"
+                  height="1em"
                   viewBox="0 0 24 24"
+                  class="w-4 h-4"
+                  data-icon="bx:bxl-twitter"
                 >
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                  />
-                </svg>
-              </a>
+                  <symbol id="ai:bx:bxl-twitter">
+                    <path
+                      d="M19.633 7.997c.013.175.013.349.013.523c0 5.325-4.053 11.461-11.46 11.461c-2.282 0-4.402-.661-6.186-1.809c.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721a4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062c.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973a4.02 4.02 0 0 1-1.771 2.22a8.073 8.073 0 0 0 2.319-.624a8.645 8.645 0 0 1-2.019 2.083z"
+                      fill="currentColor"
+                    />
+                  </symbol>
+                  <use xlink:href="#ai:bx:bxl-twitter"></use></svg
+                ><span class="sr-only">Twitter or X</span></a
+              >
               <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
+                href="https://facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-200 hover:bg-slate-300 rounded w-6 h-6 inline-flex items-center justify-center text-slate-500"
+                ><svg
+                  width="1em"
+                  height="1em"
                   viewBox="0 0 24 24"
+                  class="w-4 h-4"
+                  data-icon="bx:bxl-facebook-circle"
                 >
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.315 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
+                  <symbol id="ai:bx:bxl-facebook-circle">
+                    <path
+                      d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999c0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891c1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"
+                      fill="currentColor"
+                    />
+                  </symbol>
+                  <use xlink:href="#ai:bx:bxl-facebook-circle"></use></svg
+                ><span class="sr-only">Facebook</span></a
+              >
               <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center transition"
-              >
-                <svg
-                  class="w-4 h-4 text-slate-600"
-                  fill="currentColor"
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-slate-200 hover:bg-slate-300 rounded w-6 h-6 inline-flex items-center justify-center text-slate-500"
+                ><svg
+                  width="1em"
+                  height="1em"
                   viewBox="0 0 24 24"
+                  class="w-4 h-4"
+                  data-icon="bx:bxl-linkedin-square"
                 >
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
+                  <symbol id="ai:bx:bxl-linkedin-square">
+                    <path
+                      d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096a1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277c-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387c2.704 0 3.203 1.778 3.203 4.092v4.71z"
+                      fill="currentColor"
+                    />
+                  </symbol>
+                  <use xlink:href="#ai:bx:bxl-linkedin-square"></use></svg
+                ><span class="sr-only">Linkedin</span></a
+              >
+            </div>
+          </div>
+          <div>
+            <h3 class="font-medium text-sm text-slate-800">Company</h3>
+            <div class="flex flex-col mt-3">
+              <a
+                href="/page/about.html"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >About </a
+              ><a
+                href="/"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Careers </a
+              ><a
+                href="/blog"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Blog </a
+              ><a
+                href="/contact"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Contact
               </a>
             </div>
           </div>
           <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Company</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a href="/about.html" class="hover:text-indigo-600 transition"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Careers</a
-                >
-              </li>
-              <li>
-                <a href="/blog1.html" class="hover:text-indigo-600 transition"
-                  >Blog</a
-                >
-              </li>
-              <li>
-                <a href="/contact.html" class="hover:text-indigo-600 transition"
-                  >Contact</a
-                >
-              </li>
-            </ul>
+            <h3 class="font-medium text-sm text-slate-800">Product</h3>
+            <div class="flex flex-col mt-3">
+              <a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >For Startups </a
+              ><a
+                href="/menu/features.html"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Features </a
+              ><a
+                href="/pricing"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Pricing </a
+              ><a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Integrations
+              </a>
+            </div>
           </div>
           <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Product</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >For Startups</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Features</a
-                >
-              </li>
-              <li>
-                <a href="/pricing.html" class="hover:text-indigo-600 transition"
-                  >Pricing</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Integrations</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold text-slate-900 mb-3">Resources</h4>
-            <ul class="space-y-2 text-sm text-slate-600">
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Help Center</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Guides</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Documentation</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="hover:text-indigo-600 transition"
-                  >Uptime Status</a
-                >
-              </li>
-            </ul>
+            <h3 class="font-medium text-sm text-slate-800">Resources</h3>
+            <div class="flex flex-col mt-3">
+              <a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Help Center </a
+              ><a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Guides </a
+              ><a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Documentation </a
+              ><a
+                href="#"
+                class="py-2 text-sm text-slate-600 hover:text-indigo-600"
+                >Uptime Status
+              </a>
+            </div>
           </div>
         </div>
-        <div
-          class="border-t border-slate-200 mt-8 pt-6 text-center text-sm text-slate-600"
-        >
-          <p>Copyright © 2025 Astroship. All rights reserved.</p>
-          <p class="mt-2">
-            <a href="/terms" class="hover:text-indigo-600 transition">Terms</a>
-            ·
-            <a href="/privacy" class="hover:text-indigo-600 transition"
-              >Privacy</a
-            >
+      </div>
+      <div class="mt-14 pt-8 px-5 border-t border-slate-200">
+        <div class="max-w-screen-xl mx-auto px-5">
+          <p class="text-center text-sm text-slate-600 [text-wrap:balance]">
+            Copyright © 2025 Astroship. All rights reserved.
+          </p>
+          <p class="text-center text-xs text-slate-600 mt-2">
+            <a href="/terms" class="hover:text-indigo-500">Terms</a>・
+            <a href="/privacy" class="hover:text-indigo-500">Privacy</a>
           </p>
         </div>
       </div>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+
     <!-- Custom JS -->
-    <script>
-      // Optional: Thêm JS cho marquee pause on hover
-      document.querySelectorAll(".marquee-content").forEach((el) => {
-        el.addEventListener(
-          "mouseenter",
-          () => (el.style.animationPlayState = "paused"),
-        );
-        el.addEventListener(
-          "mouseleave",
-          () => (el.style.animationPlayState = "running"),
-        );
-      });
-    </script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
